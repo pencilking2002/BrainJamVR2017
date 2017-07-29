@@ -18,7 +18,7 @@ public class GlowScale : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		float scale = Mathf.Sin (Time.time * speed);
+		float scale = Mathf.Abs(Mathf.Sin (Time.time * speed));
 		scale = 0.9f + 0.2f * scale;
 		glow.localScale = Vector3.one * scale;
 
