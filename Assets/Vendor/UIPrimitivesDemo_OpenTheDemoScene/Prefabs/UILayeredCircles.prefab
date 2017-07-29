@@ -1,0 +1,1759 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &102282
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22402282}
+  - 222: {fileID: 22202282}
+  - 114: {fileID: 11402292}
+  - 114: {fileID: 11402290}
+  - 114: {fileID: 11402288}
+  - 114: {fileID: 11402286}
+  - 114: {fileID: 11402284}
+  - 114: {fileID: 11402282}
+  m_Layer: 0
+  m_Name: UICircle_Outer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102284
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22402284}
+  - 222: {fileID: 22202284}
+  - 114: {fileID: 11402304}
+  - 114: {fileID: 11402302}
+  - 114: {fileID: 11402300}
+  - 114: {fileID: 11402298}
+  - 114: {fileID: 11402296}
+  - 114: {fileID: 11402294}
+  m_Layer: 0
+  m_Name: UICircle_Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22402286}
+  - 222: {fileID: 22202286}
+  - 114: {fileID: 11402306}
+  m_Layer: 0
+  m_Name: UILine_Top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402282}
+  m_Layer: 0
+  m_Name: UILayeredCircles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22402288}
+  - 222: {fileID: 22202288}
+  - 114: {fileID: 11402308}
+  m_Layer: 0
+  m_Name: UILine_Bottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102292
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22402290}
+  - 222: {fileID: 22202290}
+  - 114: {fileID: 11402320}
+  - 114: {fileID: 11402318}
+  - 114: {fileID: 11402316}
+  - 114: {fileID: 11402314}
+  - 114: {fileID: 11402312}
+  - 114: {fileID: 11402310}
+  m_Layer: 0
+  m_Name: UICircle_Inner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402284}
+  m_Layer: 0
+  m_Name: UICircles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402282
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 117, z: 0}
+  m_LocalScale: {x: 1.24899495, y: 1.24899518, z: 1.24899518}
+  m_Children:
+  - {fileID: 22402286}
+  - {fileID: 22402288}
+  - {fileID: 402284}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &402284
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22402282}
+  - {fileID: 22402284}
+  - {fileID: 22402290}
+  m_Father: {fileID: 402282}
+  m_RootOrder: 2
+--- !u!114 &11402282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587fb4005918a45a5b572da836cc68d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizeDuration: 1
+  durationMin: 2
+  durationMax: 4
+  matchDuration: 1
+--- !u!114 &11402284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf516a149fc674c678c5c1a85ab0d8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: -19.8999996}
+  startRotation: {x: -0, y: 0, z: 0}
+  endRotation: {x: -0, y: 0, z: 0}
+  startScale: {x: 1, y: 1, z: 0}
+  endScale: {x: 1, y: 1, z: 1}
+  lockPosition: 1
+  lockRotation: 1
+  lockScale: 0
+  playOnAwake: 1
+  startDelay: 2
+  includeStartValue: 1
+  setValueAtStart: 1
+--- !u!114 &11402286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca437cf25c4a49dda494fd939b76649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5820710cec64df1bad64a7e18a6f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  valueChange: 360
+  startColor: {r: 1, g: .632352948, b: .632352948, a: 0}
+  endColor: {r: 1, g: .632352948, b: .632352948, a: 1}
+  playOnAwake: 1
+  startDelay: 0
+  includeStartValue: 1
+  setColorAtStart: 1
+--- !u!114 &11402290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df2b1fb45cb84528afb843d4dac9be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c35b1cccec242dbac5ae2a788860ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: .779411793, g: .945233226, b: 1, a: .843137264}
+  radius: 104
+  angle: 360
+  angleOffset: 0
+  repeatInterval: 360
+  repetitions: 360
+  thickness: .25999999
+  subdivisions: 13
+  useGradient: 0
+  gradientStyle: 0
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  gradientStretch: 0
+  worldSpace: 0
+  shouldGlow: 1
+  glowColor: {r: .382352948, g: .833710372, b: 1, a: 1}
+  glowDistance: .0500000007
+  drawDots: 0
+  dotRadius: .25
+  dotSubdivisions: 3
+--- !u!114 &11402294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587fb4005918a45a5b572da836cc68d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizeDuration: 1
+  durationMin: 2
+  durationMax: 4
+  matchDuration: 1
+--- !u!114 &11402296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf516a149fc674c678c5c1a85ab0d8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: -58.7999992}
+  startRotation: {x: -0, y: 0, z: 0}
+  endRotation: {x: -0, y: 0, z: 0}
+  startScale: {x: 1, y: 1, z: 0}
+  endScale: {x: 1, y: 1, z: 1}
+  lockPosition: 1
+  lockRotation: 1
+  lockScale: 0
+  playOnAwake: 1
+  startDelay: 1
+  includeStartValue: 1
+  setValueAtStart: 1
+--- !u!114 &11402298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca437cf25c4a49dda494fd939b76649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5820710cec64df1bad64a7e18a6f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  valueChange: 360
+  startColor: {r: 1, g: .632352948, b: .632352948, a: 0}
+  endColor: {r: 1, g: .632352948, b: .632352948, a: 1}
+  playOnAwake: 1
+  startDelay: 0
+  includeStartValue: 1
+  setColorAtStart: 1
+--- !u!114 &11402302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df2b1fb45cb84528afb843d4dac9be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c35b1cccec242dbac5ae2a788860ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: .933823526, g: .996848762, b: 1, a: .843137264}
+  radius: 72
+  angle: 360
+  angleOffset: 0
+  repeatInterval: 360
+  repetitions: 360
+  thickness: .25999999
+  subdivisions: 13
+  useGradient: 0
+  gradientStyle: 0
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  gradientStretch: 0
+  worldSpace: 0
+  shouldGlow: 1
+  glowColor: {r: .713235259, g: .928803205, b: 1, a: 1}
+  glowDistance: .0670000017
+  drawDots: 0
+  dotRadius: .25
+  dotSubdivisions: 3
+--- !u!114 &11402306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6f4fc538cd948f1b4ec9fecdfc9eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  thickness: .00300000003
+  fillPercent: 1
+  fillSubdivisions: 1
+  nodes:
+  - {x: -.200000048, y: 0}
+  - {x: .200000048, y: 0}
+  useGradient: 0
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  shouldGlow: 0
+  glowColor: {r: 0, g: 1, b: 1, a: 1}
+  glowDistance: 1.5
+  smoothLine: 0
+  smoothMultiplier: 3
+  stitchEdges: 0
+  dottedLineSubdivisions: 16
+  dottedLine: 0
+  startCap: 1
+  endCap: 1
+  startCapWidth: .5
+  endCapWidth: .5
+  startCapColor: {r: 1, g: .948529422, b: .948529422, a: 1}
+  endCapColor: {r: 1, g: .949019611, b: .949019611, a: 1}
+  startCapGlow: 1
+  endCapGlow: 1
+  startCapThickness: 1
+  endCapThickness: 1
+--- !u!114 &11402308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6f4fc538cd948f1b4ec9fecdfc9eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  thickness: .00300000003
+  fillPercent: 1
+  fillSubdivisions: 1
+  nodes:
+  - {x: -.200000048, y: 0}
+  - {x: .200000048, y: 0}
+  useGradient: 0
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  shouldGlow: 0
+  glowColor: {r: 0, g: 1, b: 1, a: 1}
+  glowDistance: 1.5
+  smoothLine: 0
+  smoothMultiplier: 3
+  stitchEdges: 0
+  dottedLineSubdivisions: 16
+  dottedLine: 0
+  startCap: 1
+  endCap: 1
+  startCapWidth: .5
+  endCapWidth: .5
+  startCapColor: {r: 1, g: .948529422, b: .948529422, a: 1}
+  endCapColor: {r: 1, g: .949019611, b: .949019611, a: 1}
+  startCapGlow: 1
+  endCapGlow: 1
+  startCapThickness: 1
+  endCapThickness: 1
+--- !u!114 &11402310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587fb4005918a45a5b572da836cc68d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizeDuration: 1
+  durationMin: 2
+  durationMax: 4
+  matchDuration: 1
+--- !u!114 &11402312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf516a149fc674c678c5c1a85ab0d8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: -75}
+  startRotation: {x: -0, y: 0, z: 0}
+  endRotation: {x: -0, y: 0, z: 0}
+  startScale: {x: 1, y: 1, z: 0}
+  endScale: {x: 1, y: 1, z: 1}
+  lockPosition: 1
+  lockRotation: 1
+  lockScale: 0
+  playOnAwake: 1
+  startDelay: 0
+  includeStartValue: 1
+  setValueAtStart: 1
+--- !u!114 &11402314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca437cf25c4a49dda494fd939b76649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5820710cec64df1bad64a7e18a6f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  easeType: 15
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .0985659659
+      outSlope: .0985659659
+      tangentMode: 0
+    - time: .0399999991
+      value: .00394263864
+      inSlope: .196355209
+      outSlope: .196355209
+      tangentMode: 0
+    - time: .0799999982
+      value: .0157084167
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .119999997
+      value: .0351117551
+      inSlope: .576728225
+      outSlope: .576728225
+      tangentMode: 0
+    - time: .159999996
+      value: .0618466735
+      inSlope: .754746735
+      outSlope: .754746735
+      tangentMode: 0
+    - time: .200000003
+      value: .0954914987
+      inSlope: .920862734
+      outSlope: .920862734
+      tangentMode: 0
+    - time: .239999995
+      value: .13551569
+      inSlope: 1.07245636
+      outSlope: 1.07245636
+      tangentMode: 0
+    - time: .280000001
+      value: .181288004
+      inSlope: 1.20713675
+      outSlope: 1.20713675
+      tangentMode: 0
+    - time: .319999993
+      value: .232086629
+      inSlope: 1.32277966
+      outSlope: 1.32277966
+      tangentMode: 0
+    - time: .360000014
+      value: .287110388
+      inSlope: 1.41756105
+      outSlope: 1.41756105
+      tangentMode: 0
+    - time: .400000006
+      value: .345491529
+      inSlope: 1.48998785
+      outSlope: 1.48998785
+      tangentMode: 0
+    - time: .439999998
+      value: .406309396
+      inSlope: 1.53891551
+      outSlope: 1.53891551
+      tangentMode: 0
+    - time: .479999989
+      value: .468604743
+      inSlope: 1.5635736
+      outSlope: 1.5635736
+      tangentMode: 0
+    - time: .519999981
+      value: .531395257
+      inSlope: 1.56357336
+      outSlope: 1.56357336
+      tangentMode: 0
+    - time: .560000002
+      value: .593690634
+      inSlope: 1.53891587
+      outSlope: 1.53891587
+      tangentMode: 0
+    - time: .600000024
+      value: .654508591
+      inSlope: 1.48998833
+      outSlope: 1.48998833
+      tangentMode: 0
+    - time: .639999986
+      value: .712889671
+      inSlope: 1.41756129
+      outSlope: 1.41756129
+      tangentMode: 0
+    - time: .680000007
+      value: .767913461
+      inSlope: 1.32277989
+      outSlope: 1.32277989
+      tangentMode: 0
+    - time: .720000029
+      value: .818712115
+      inSlope: 1.2071358
+      outSlope: 1.2071358
+      tangentMode: 0
+    - time: .75999999
+      value: .86448431
+      inSlope: 1.07245541
+      outSlope: 1.07245541
+      tangentMode: 0
+    - time: .800000012
+      value: .904508531
+      inSlope: .920862794
+      outSlope: .920862794
+      tangentMode: 0
+    - time: .839999974
+      value: .938153327
+      inSlope: .754747033
+      outSlope: .754747033
+      tangentMode: 0
+    - time: .879999995
+      value: .964888275
+      inSlope: .576728284
+      outSlope: .576728284
+      tangentMode: 0
+    - time: .920000017
+      value: .984291613
+      inSlope: .389613956
+      outSlope: .389613956
+      tangentMode: 0
+    - time: .959999979
+      value: .996057391
+      inSlope: .196354941
+      outSlope: .196354941
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: .0985651687
+      outSlope: .0985651687
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lastEaseType: 15
+  isMinimized: 1
+  animationType: 0
+  loopCount: -1
+  loopType: 1
+  valueChange: 360
+  startColor: {r: 1, g: .632352948, b: .632352948, a: 0}
+  endColor: {r: 1, g: .632352948, b: .632352948, a: 1}
+  playOnAwake: 1
+  startDelay: 0
+  includeStartValue: 1
+  setColorAtStart: 1
+--- !u!114 &11402318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df2b1fb45cb84528afb843d4dac9be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11402320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c35b1cccec242dbac5ae2a788860ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .952941179}
+  radius: 50
+  angle: 360
+  angleOffset: 0
+  repeatInterval: 360
+  repetitions: 360
+  thickness: 1
+  subdivisions: 13
+  useGradient: 0
+  gradientStyle: 0
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  gradientStretch: 0
+  worldSpace: 0
+  shouldGlow: 1
+  glowColor: {r: .816176474, g: .969574034, b: 1, a: 1}
+  glowDistance: .0860000029
+  drawDots: 0
+  dotRadius: .25
+  dotSubdivisions: 3
+--- !u!222 &22202282
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+--- !u!222 &22202284
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+--- !u!222 &22202286
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102286}
+--- !u!222 &22202288
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102290}
+--- !u!222 &22202290
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+--- !u!224 &22402282
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -19.8999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402284}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22402284
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -58.7999992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402284}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22402286
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.1000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402282}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 79}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22402288
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.1000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402282}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -78.5}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22402290
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402284}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 102288}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: ff658d75be36340afbaa61ee9b28a137
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bathroom_Bristle
+    100004: Bathroom_Bristle_1
+    100006: Bathroom_Bristle_10
+    100008: Bathroom_Bristle_11
+    100010: Bathroom_Bristle_13
+    100012: Bathroom_Bristle_15
+    100014: Bathroom_Bristle_16
+    100016: Bathroom_Bristle_17
+    100018: Bathroom_Bristle_18
+    100020: Bathroom_Bristle_2
+    100022: Bathroom_Bristle_3
+    100024: Bathroom_Bristle_4
+    100026: Bathroom_Bristle_5
+    100028: Bathroom_Bristle_6
+    100030: Bathroom_Bristle_7
+    100032: Bathroom_Bristle_8
+    100034: Bathroom_Bristle_9
+    100036: Bathroom_Brush
+    100038: Bathroom_Brush_Bristle
+    100040: Bathroom_Bursh_Handle_02
+    100042: Bathroom_POV
+    400000: //RootNode
+    400002: Bathroom_Bristle
+    400004: Bathroom_Bristle_1
+    400006: Bathroom_Bristle_10
+    400008: Bathroom_Bristle_11
+    400010: Bathroom_Bristle_13
+    400012: Bathroom_Bristle_15
+    400014: Bathroom_Bristle_16
+    400016: Bathroom_Bristle_17
+    400018: Bathroom_Bristle_18
+    400020: Bathroom_Bristle_2
+    400022: Bathroom_Bristle_3
+    400024: Bathroom_Bristle_4
+    400026: Bathroom_Bristle_5
+    400028: Bathroom_Bristle_6
+    400030: Bathroom_Bristle_7
+    400032: Bathroom_Bristle_8
+    400034: Bathroom_Bristle_9
+    400036: Bathroom_Brush
+    400038: Bathroom_Brush_Bristle
+    400040: Bathroom_Bursh_Handle_02
+    400042: Bathroom_POV
+    2300000: Bathroom_Bristle
+    2300002: Bathroom_Bristle_1
+    2300004: Bathroom_Bristle_10
+    2300006: Bathroom_Bristle_11
+    2300008: Bathroom_Bristle_13
+    2300010: Bathroom_Bristle_15
+    2300012: Bathroom_Bristle_16
+    2300014: Bathroom_Bristle_17
+    2300016: Bathroom_Bristle_18
+    2300018: Bathroom_Bristle_2
+    2300020: Bathroom_Bristle_3
+    2300022: Bathroom_Bristle_4
+    2300024: Bathroom_Bristle_5
+    2300026: Bathroom_Bristle_6
+    2300028: Bathroom_Bristle_7
+    2300030: Bathroom_Bristle_8
+    2300032: Bathroom_Bristle_9
+    2300034: Bathroom_Bursh_Handle_02
+    3300000: Bathroom_Bristle
+    3300002: Bathroom_Bristle_1
+    3300004: Bathroom_Bristle_10
+    3300006: Bathroom_Bristle_11
+    3300008: Bathroom_Bristle_13
+    3300010: Bathroom_Bristle_15
+    3300012: Bathroom_Bristle_16
+    3300014: Bathroom_Bristle_17
+    3300016: Bathroom_Bristle_18
+    3300018: Bathroom_Bristle_2
+    3300020: Bathroom_Bristle_3
+    3300022: Bathroom_Bristle_4
+    3300024: Bathroom_Bristle_5
+    3300026: Bathroom_Bristle_6
+    3300028: Bathroom_Bristle_7
+    3300030: Bathroom_Bristle_8
+    3300032: Bathroom_Bristle_9
+    3300034: Bathroom_Bursh_Handle_02
+    4300000: Bathroom_Bristle_11
+    4300002: Bathroom_Bristle_18
+    4300004: Bathroom_Bristle_17
+    4300006: Bathroom_Bristle_16
+    4300008: Bathroom_Bristle_15
+    4300010: Bathroom_Bristle_13
+    4300012: Bathroom_Bristle_10
+    4300014: Bathroom_Bristle_9
+    4300016: Bathroom_Bristle_8
+    4300018: Bathroom_Bristle_7
+    4300020: Bathroom_Bristle_6
+    4300022: Bathroom_Bristle_5
+    4300024: Bathroom_Bristle_4
+    4300026: Bathroom_Bristle_3
+    4300028: Bathroom_Bristle_2
+    4300030: Bathroom_Bristle_1
+    4300032: Bathroom_Bristle
+    4300034: Bathroom_Bursh_Handle_02
+    7400000: C4D Animation Take
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: C4D Animation Take
+      takeName: C4D Animation Take
+      firstFrame: 151
+      lastFrame: 500
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bathroom_Brush
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_1
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_2
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_3
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_4
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_5
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_6
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_7
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_8
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_9
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_10
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_11
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_13
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_15
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_16
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_17
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Brush_Bristle/Bathroom_Bristle_18
+        weight: 1
+      - path: Bathroom_Brush/Bathroom_Bursh_Handle_02
+        weight: 1
+      - path: Bathroom_POV
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
