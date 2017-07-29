@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class NeuronProps {
 	
-	public float strength;
+	private float _strength = 0;
+	public float strength {
+		get 
+		{
+			return _strength;
+		}
+
+		set
+		{
+			_strength = Mathf.Clamp (value, -1, 1);
+		}
+	}
+
 	public Transform targetNeuron;
+
 }
