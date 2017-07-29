@@ -34,6 +34,8 @@ public class BrainController : MonoBehaviour {
 			}
 
 
+			DrawConnections();
+
 	}
 
 	Vector3 nodeRandomPlacement()
@@ -53,6 +55,64 @@ public class BrainController : MonoBehaviour {
 
 		return randomPos;
 	}
+
+	
+	void DrawConnections(){
+
+			// Each connection made has a line render and a precent 
+
+		/*	foreach (Neuron n in nodes) {
+
+	
+				n.gameObject.AddComponent<ConnectionLine>();
+				n.gameObject.AddComponent<LineRenderer>();
+
+				ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+
+				Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+
+				line.SetUp(n, randNeuron);
+			}*/
+
+			foreach (Neuron n in nodes) {
+
+				List<Neuron> neighbors = getNodeInRange(n, 5f);
+
+			
+
+				foreach (Neuron neighbor in neighbors) {
+
+					n.gameObject.AddComponent<ConnectionLine>();
+					n.gameObject.AddComponent<LineRenderer>();
+
+					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+					line.SetUp(n, neighbor);
+
+				}
+			}
+	}
+
+	public List<Neuron> getNodeInRange( Neuron nodeToCheck, float range){
+
+			List<Neuron> neighbors = new List<Neuron>();
+
+			foreach (Neuron n in nodes) {
+
+				float dist = Vector3.Distance(nodeToCheck.gameObject.transform.position, n.gameObject.transform.position);
+
+				if(dist < range){
+
+					neighbors.Add(n);
+				}
+			}
+
+			// pick random close object
+
+
+			return neighbors;
+	}
+
+
 
 	/*
 	 * START SINGLETON
