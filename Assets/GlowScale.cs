@@ -7,7 +7,6 @@ public class GlowScale : MonoBehaviour {
 	private Material mat;
 	public RectTransform glow;
 
-	public float scalePower = 2;
 	public float speed = 1;
 
 	// Use this for initialization
@@ -19,8 +18,9 @@ public class GlowScale : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		float scale = Mathf.Sin (Time.time * speed) * scalePower * Time.deltaTime;
-		glow.localScale = new Vector3(glow.localScale.x + scale, glow.localScale.y + scale, glow.localScale.z + scale);
+		float scale = Mathf.Sin (Time.time * speed);
+		scale = 0.9f + 0.2f * scale;
+		glow.localScale = Vector3.one * scale;
 
 		//print (Time.time); 
 	}
