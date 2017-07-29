@@ -146,7 +146,8 @@ namespace Neuromancers
 			canvasLeftText = canvasLeft.GetComponentInChildren<UnityEngine.UI.Text>();
 			canvasRightText = canvasRight.GetComponentInChildren<UnityEngine.UI.Text>();
 
-			tutorialCanvasGroupAnimator = canvasTutorial.GetComponent<UIPrimitives.CanvasGroupAnimator>();
+			if(canvasTutorial!=null)
+				tutorialCanvasGroupAnimator = canvasTutorial.GetComponent<UIPrimitives.CanvasGroupAnimator>();
 
 			lineRenderer = GetComponentInChildren<LineRenderer> ();
 
@@ -376,11 +377,17 @@ namespace Neuromancers
 
 		protected void ShowTutorial() {
 
+			if(tutorialCanvasGroupAnimator==null)
+				return;
+			
 			tutorialCanvasGroupAnimator.AddAlphaEndAnimation(null,1f,TUTORIAL_FADE_DURATION,UIPrimitives.UIAnimationUtility.EaseType.easeOutSine);
 			isTutorialEnabled = true;
 		}
 
 		protected void HideTutorial() {
+
+			if(tutorialCanvasGroupAnimator==null)
+				return;
 
 			tutorialCanvasGroupAnimator.AddAlphaEndAnimation(null,0f,TUTORIAL_FADE_DURATION,UIPrimitives.UIAnimationUtility.EaseType.easeInSine);
 			isTutorialEnabled = false;
