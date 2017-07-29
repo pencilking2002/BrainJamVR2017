@@ -10,9 +10,21 @@ public class BrainController : MonoBehaviour {
 
 	void SetUp(){
 
-		GameObject go = Instantiate(Resources.Load("Neuron")) as GameObject;
-		nodes.Add( go.AddComponent<Neuron>();
+			GameObject go;
 		
+			float offSetX = 10;
+			float offSetY = 10;
+		
+			// Place nodes
+			for( int i = 0; i < 10 ; i++){
+
+				go = Instantiate(Resources.Load("Neuron")) as GameObject;
+
+				Neuron node = go.AddComponent<Neuron>();
+				nodes.Add(node);
+
+				go.transform.position = new Vector3(i * offSetX, 0, 0 );
+			}
 
 
 	}
@@ -36,9 +48,10 @@ public class BrainController : MonoBehaviour {
 
 	void Start ()
 	{
-		singleton.TryInit ();
-		singleton = this;
+			singleton = this;
 
+			singleton.TryInit ();
+		
 		/*if (singleton != this) {
 			Debug.LogError ("Brain " + gameObject.name, gameObject);
 			Destroy (this);
