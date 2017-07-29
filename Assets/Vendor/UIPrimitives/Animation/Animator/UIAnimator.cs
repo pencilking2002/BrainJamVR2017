@@ -6,14 +6,14 @@ namespace UIPrimitives
 {
 	public class UIAnimator : MonoBehaviour
 	{
-	
+
 		//readonly
 
 		//Serialized
-	
+
 		//Protected
 		protected List<Queue<UIAnimation_Base>> myUIAnimations;
-	
+
 		//Delegates
 
 		//Singleton
@@ -28,11 +28,30 @@ namespace UIPrimitives
 		{
 			myUIAnimations = new List<Queue<UIAnimation_Base>> ();
 		}
-	
+
 		///////////////////////////////////////////////////////////////////////////
 		//
 		// UIAnimator Functions
 		//
+
+		public bool IsAnimating() {
+			bool isAnimating = false;
+			for (int i=0; i<myUIAnimations.Count; ++i) {			
+				if (myUIAnimations [i].Count != 0) {
+					isAnimating = true;
+					//					Debug.Log (myUIAnimations [i].Count);
+				}
+			}
+			return isAnimating;
+		}
+
+		public void ClearAllAnimations () {
+
+			for (int i=0; i<myUIAnimations.Count; ++i) {
+
+				myUIAnimations [i].Clear ();
+			}
+		}
 
 		protected bool UpdateAnimations ()
 		{	
@@ -74,7 +93,7 @@ namespace UIPrimitives
 			if (!currentUIAnimation.updateBefore)
 				currentUIAnimation.UpdateAnimation ();
 		}
-	
+
 		////////////////////////////////////////
 		//
 		// Function Functions

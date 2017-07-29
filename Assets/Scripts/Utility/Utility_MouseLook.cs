@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace ITHB.Utility
+namespace Neuromancers.Utility
 {
 	public class Utility_MouseLook : MonoBehaviour
 	{

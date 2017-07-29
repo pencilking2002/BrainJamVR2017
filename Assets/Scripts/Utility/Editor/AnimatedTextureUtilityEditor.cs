@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ITHB
+namespace Neuromancers
 {
 	[CustomEditor(typeof(AnimatedTextureUtility))]
 	public class AnimatedTextureUtilityEditor : Editor
