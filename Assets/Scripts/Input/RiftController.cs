@@ -48,7 +48,8 @@ namespace Neuromancers
 			touchController = GetComponent<TouchController> ();
 			controllerType = GetControllerType();
 
-			thumbstickMenuMaterial = thumbstickRenderer.sharedMaterial;
+			if(thumbstickRenderer!=null)
+				thumbstickMenuMaterial = thumbstickRenderer.sharedMaterial;
 		}
 
 		protected override void Start () {
