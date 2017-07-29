@@ -147,7 +147,7 @@ namespace Neuromancers {
 
 				float angle;
 				angle =	CalculateAngle(pnt, centerVec);
-				if(150 > angle && angle > 70)
+				if(150 > angle && angle > 90)
 				{
 					
 
@@ -164,7 +164,7 @@ namespace Neuromancers {
 					conditions++;
 				}*/
 
-
+				// change
 			
 				float distFromCenter = Vector3.Distance(pnt, centerVec);
 
