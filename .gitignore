@@ -6,6 +6,8 @@
 DICOM*
 Gallery/
 
+*.mp4
+
 Assets/.reuniter_data
 Assets/Resources/Volumes
 
