@@ -10,7 +10,7 @@ namespace Neuromancers
        
         [Tooltip("Put child trigger object here")]
         public GameObject neuronTigger;
-        public List<Neuron> neighbors = new List<Neuron>();
+        public List<GameObject> neighbors = new List<GameObject>();
 
 
         /////Protected/////
