@@ -7,7 +7,7 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
-		protected readonly int NEURON_COUNT = 50;
+		protected readonly int NEURON_COUNT = 70;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
@@ -128,16 +128,12 @@ namespace Neuromancers {
 			bool goodDist = false;
 			bool goodVerticalAngle = false;
 
-			float radiusMin = 7;
+			float radiusMin = 6;
 			float radiusMax = 10;
-			// angle left 
-			// angle right
-			// angle button
-			// angle top
+		
 
 			Vector3 centerVec = new Vector3 (0, 0, 0);
 			Vector3 pnt = Vector3.zero;
-
 
 			int conditions = 0;
 
@@ -149,23 +145,31 @@ namespace Neuromancers {
 		
 				goodVerticalAngle = false;
 
-
-
-
 				float angle;
 				angle =	CalculateAngle(pnt, centerVec);
-
-				if(150 > angle && angle > 100){
+				if(150 > angle && angle > 70)
+				{
 					
-					goodVerticalAngle = true;
+
 					conditions++;
 				}
+
+				/*
+				float hAngle;
+				hAngle = CalculateAngleHorizon(pnt, centerVec);
+				if(180 > hAngle && hAngle > 90)
+				{
+
+
+					conditions++;
+				}*/
+
+
 			
 				float distFromCenter = Vector3.Distance(pnt, centerVec);
 
 				if(distFromCenter > radiusMin)
 				{
-					goodDist = true;
 					conditions++;
 				}
 			}
@@ -177,6 +181,11 @@ namespace Neuromancers {
 		public static float CalculateAngle(Vector3 from, Vector3 to)
 		{
 			return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
+		}
+
+		public static float CalculateAngleHorizon(Vector3 from, Vector3 to)
+		{
+			return Quaternion.FromToRotation(Vector3.left, to - from).eulerAngles.z;
 		}
 				
 
@@ -216,40 +225,40 @@ namespace Neuromancers {
 			}
 		}
 
-		void DrawConnectionsOfEachNeuron () {
-
-			// Each connection made has a line render and a precent 
-
-			/*	foreach (Neuron n in nodes) {
-
-
-                    n.gameObject.AddComponent<ConnectionLine>();
-                    n.gameObject.AddComponent<LineRenderer>();
-
-                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
-
-                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
-
-                    line.SetUp(n, randNeuron);
-                }*/
-
-			foreach (Neuron n in neurons) {
-
-
-				List<Neuron> neighbors = n.neighbors;
-
-
-				foreach (Neuron neighbor in neighbors) {
-
-					n.gameObject.AddComponent<ConnectionLine> ();
-					n.gameObject.AddComponent<LineRenderer> ();
-
-					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
-					line.SetUp (n, neighbor);
-
-				}
-			}
-		}
+//		void DrawConnectionsOfEachNeuron () {
+//
+//			// Each connection made has a line render and a precent 
+//
+//			/*	foreach (Neuron n in nodes) {
+//
+//
+//                    n.gameObject.AddComponent<ConnectionLine>();
+//                    n.gameObject.AddComponent<LineRenderer>();
+//
+//                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+//
+//                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+//
+//                    line.SetUp(n, randNeuron);
+//                }*/
+//
+//			foreach (Neuron n in neurons) {
+//
+//
+//				List<Neuron> neighbors = n.neighbors;
+//
+//
+//				foreach (Neuron neighbor in neighbors) {
+//
+//					n.gameObject.AddComponent<ConnectionLine> ();
+//					n.gameObject.AddComponent<LineRenderer> ();
+//
+//					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
+//					line.SetUp (n, neighbor);
+//
+//				}
+//			}
+//		}
 
 		public List<Neuron> getNodeInRange (Neuron nodeToCheck, float range) {
 

@@ -7,24 +7,29 @@ namespace Neuromancers {
 	
 	public class Neuron : MonoBehaviour {
        
-		public List<Neuron> neighbors = new List<Neuron> ();
+		//readonly 
+		protected readonly float FIRE_DELAY = 1f;
 
-		public Renderer render;
 
-		Vector3 strScale;
+		//Serialized
+//		public List<Neuron> neighbors = new List<Neuron> ();
+//		public Renderer render;
+
 		/////Protected/////
 		//References
 		protected List<Connection> allConnections;
+		protected NeuronRenderer neuronRenderer;
 		//Primitives
+		Vector3 strScale;
 		private bool neighborNode = false;
-		private float currentTemperature = 0f;
+		private float energyLevel = 0f;
 
 		//properties
-		public float CurrentTemperature {
-			get { return currentTemperature; }
-			set  { currentTemperature = value; }
-		}
-
+//		public float EnergyLevel {
+//			get { return energyLevel; }
+//			set  { energyLevel = value; }
+//		}
+//
 		public bool NeighborNode {
 			get { return neighborNode; }
 			set {
@@ -41,6 +46,7 @@ namespace Neuromancers {
 		protected void Awake () {
 
 			this.allConnections = new List<Connection>();
+			this.neuronRenderer = GetComponentInChildren<NeuronRenderer>();
 		}
 
 		protected void Start () {
@@ -50,6 +56,12 @@ namespace Neuromancers {
 			strScale = transform.localScale;
 		}
 
+		protected void Update() {
+
+			this.energyLevel -= Time.deltaTime*.2f;
+			this.energyLevel = Mathf.Clamp01(this.energyLevel);
+			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
+		}
 
 
 		///////////////////////////////////////////////////////////////////////////
@@ -72,61 +84,48 @@ namespace Neuromancers {
 		/// 
 		public GameObject spherePrefab;
 
-		public void SelectNode (Neuron parent) {
-
-//			LeanTween.scale (transform.Find("View").gameObject, strScale * 1.5f, 0.2f).setLoopPingPong (1);
-			//render.material.color = Color.red;
-			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
-			matAnim.ClearAllAnimations ();
-			matAnim.AddColorStartAnimation (Color.white, Color.red, loopCount: 1, duration: .5f);
-			//  if (!neighborNode)
-			//   {
-			/* foreach (Neuron neighbor in neighbors)
-             {
-
-                 neighbor.ImpluseTrigger(1.1f);
-                 neighborNode = true;
-             }*/
-
+		public void Fire () {
+			
+//			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
+//			matAnim.ClearAllAnimations ();
+//			matAnim.AddColorStartAnimation (Color.white, Color.red, loopCount: 1, duration: .5f);
+		
 			for (int i = 0; i < allConnections.Count; ++i) {
 
 				Neuron n = allConnections[i].DestinationNeuron;
 	
 				GameObject pathGO = Instantiate (spherePrefab) as GameObject;
-				pathGO.transform.position = parent.transform.position;
-				pathGO.GetComponent<UIPrimitives.UITransformAnimator> ().AddPositionEndAnimation (n.transform.position, 1.1f, UIPrimitives.UIAnimationUtility.EaseType.easeInOutSine);
-				Destroy (pathGO, 1.1f);
-				n.ImpluseTrigger (1.1f);
+				pathGO.transform.position = this.transform.position;
+				pathGO.GetComponent<UIPrimitives.UITransformAnimator> ().AddPositionEndAnimation (n.transform.position, FIRE_DELAY, UIPrimitives.UIAnimationUtility.EaseType.easeInOutSine);
+				Destroy (pathGO, FIRE_DELAY);
+
+				StartCoroutine(n.ImpluseTrigger (allConnections[i].Strength));
 			}
 			// }
 
 		}
 
-		public void ImpluseTrigger (float delta) {
-			CurrentTemperature += delta;
-			//gameObject.transform.localScale *= delta;
-			// gameObject.GetComponent<Renderer>().material.color = Color.red;
+		public IEnumerator ImpluseTrigger (float delta) {
 
-			StartCoroutine ("Wait", 0.6f);
+			yield return new WaitForSeconds (FIRE_DELAY);
+
+			this.energyLevel += delta;
+			this.energyLevel = Mathf.Clamp01(this.energyLevel);
+
+			if(this.energyLevel == 1f) {
+
+				Fire ();
+			}
 		}
 
 		private void OnMouseDown () {
           
-
+			this.energyLevel = 1f;
 			neighborNode = false;
-			SelectNode (this);
-			Debug.Log ("WE ARE WORKING AT POWER LEVEL 9000");
+			Fire ();
+//			Debug.Log ("WE ARE WORKING AT POWER LEVEL 9000");
 		}
 
-
-
-
-
-    
-		IEnumerator Wait (float seconds) {
-			yield return new WaitForSeconds (seconds);
-			SelectNode (this);
-		}
 
 	}
 }
