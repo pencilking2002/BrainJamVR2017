@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ITHB.Utility
+namespace Neuromancers.Utility
 {
 	public class Utility_AnimatedSprite : MonoBehaviour
 	{

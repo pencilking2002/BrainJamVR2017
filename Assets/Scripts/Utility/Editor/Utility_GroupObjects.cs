@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
-namespace ITHB.Utility
+namespace Neuromancers.Utility
 {
 	public static class Utility_GroupObjects
 	{

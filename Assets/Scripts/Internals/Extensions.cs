@@ -11,7 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 using Debug = UnityEngine.Debug;
 
-namespace ITHB
+namespace Neuromancers
 {
 
 	public static class intExtension {

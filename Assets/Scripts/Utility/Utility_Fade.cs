@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using ITHB.Utility;
+using Neuromancers.Utility;
 
 
 public class Utility_Fade : MonoBehaviour {

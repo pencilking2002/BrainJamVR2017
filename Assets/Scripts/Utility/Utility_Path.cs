@@ -21,7 +21,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace ITHB.Utility
+namespace Neuromancers.Utility
 {
 	public class Utility_Path : MonoBehaviour
 	{

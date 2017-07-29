@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using VRB.Utility;
 
-namespace ITHB.Utility
+namespace Neuromancers.Utility
 {
 	public class FollowSplineUtility : MonoBehaviour
 	{

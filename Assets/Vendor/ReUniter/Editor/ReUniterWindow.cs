@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
@@ -120,13 +119,12 @@ namespace Reuniter
             alignment = TextAnchor.MiddleRight, normal = {textColor = new Color(.4f,.4f,.4f)}};
         private static readonly GUIStyle CenteredLabelStyle = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.UpperCenter, wordWrap = true };
 
-        private readonly Texture2D selectedLineBackgroundTex = MakeTex(600, 1, SelectionBackgroundColor());
-        private readonly Texture2D searchLineBackgroundTex = MakeTex(600, 1, new Color(.9f, .9f, .9f));
+        private Texture2D selectedLineBackgroundTex;
+        private Texture2D searchLineBackgroundTex;
 
-        private readonly GUIStyle selectedLineGuiStyle;
-        private readonly GUIStyle searchLineGuiStyle;
-
-        private readonly GUIStyle regularLineGuiStyle = new GUIStyle {richText = true, normal = {textColor = new Color(0, 0, 0, 0)}};
+        private GUIStyle selectedLineGuiStyle;
+        private GUIStyle searchLineGuiStyle;
+        private GUIStyle regularLineGuiStyle;
 
         private static readonly ReUniterItemInfo[] NoResults = { };
         private int selectedIndex;
@@ -145,22 +143,6 @@ namespace Reuniter
         private const string COLORIZE_SUFFIX = "</color></b>";
         private const int MAX_ITEMS_COUNT = 14;
         private ReUniterMode mode;
-
-        public ReUniterWindow() 
-        {
-            selectedLineGuiStyle = new GUIStyle
-                {
-                    richText = true,
-                    normal = {background = selectedLineBackgroundTex, textColor = new Color(0, 0, 0, 0)},
-                };
-            searchLineGuiStyle = new GUIStyle
-                {
-                    richText = true,
-                    fontSize = 12,
-                    normal = {background = searchLineBackgroundTex},
-                    margin = new RectOffset(5, 5, 10, 10),
-                };
-        }
 
         public void OnDestroy()
         {
@@ -261,7 +243,8 @@ namespace Reuniter
         }
 
         private static ReUniterWindow PreviousWindow;
-        
+        private bool darkSkin;
+
         private static void ShowWindow(ReUniterMode mode)
         {
             if (PreviousWindow != null)
@@ -916,19 +899,43 @@ namespace Reuniter
 #endif
         }
 
+        public void OnEnable()
+        {
+            darkSkin = IsDarkSkin();
+            selectedLineBackgroundTex = MakeTex(600, 1, SelectionBackgroundColor());
+            searchLineBackgroundTex = MakeTex(600, 1, new Color(.9f, .9f, .9f));
+
+            selectedLineGuiStyle = new GUIStyle
+            {
+                richText = true,
+                normal = { background = selectedLineBackgroundTex, textColor = new Color(0, 0, 0, 0) },
+            };
+            searchLineGuiStyle = new GUIStyle
+            {
+                richText = true,
+                fontSize = 12,
+                normal = { background = searchLineBackgroundTex },
+                margin = new RectOffset(5, 5, 10, 10),
+            };
+            regularLineGuiStyle = new GUIStyle { richText = true, normal = { textColor = new Color(0, 0, 0, 0) } };
+
+            
+        }
+
         private static bool IsDarkSkin()
         {
-            return EditorStyles.label.normal.textColor.r > .5f;
+            var isDarkSkin = EditorStyles.label.normal.textColor.r > .5f;
+            return isDarkSkin;
         }
 
         private string ColorizePrefix()
         {
-            return IsDarkSkin()?DARK_COLORIZE_PREFIX:LIGHT_COLORIZE_PREFIX;
+            return darkSkin?DARK_COLORIZE_PREFIX:LIGHT_COLORIZE_PREFIX;
         }
 
-        private static Color SelectionBackgroundColor()
+        private Color SelectionBackgroundColor()
         {
-            return IsDarkSkin() ? new Color(.1f, .5f, .9f, .5f) : new Color(.9f, .95f, 1f, 1f);
+            return darkSkin ? new Color(.1f, .5f, .9f, .5f) : new Color(.9f, .95f, 1f, 1f);
         }
 
         private string Highlight(ReUniterItemInfo itemInfo, string searchTerms)

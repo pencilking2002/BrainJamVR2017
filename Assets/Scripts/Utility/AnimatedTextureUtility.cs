@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ITHB
+namespace Neuromancers
 {
 	public class AnimatedTextureUtility : MonoBehaviour
 	{
