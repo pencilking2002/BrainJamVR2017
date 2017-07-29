@@ -7,6 +7,7 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
+		protected readonly int MAX_CONNECTION_COUNT = 2;
 		protected readonly int NEURON_COUNT = 50;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
@@ -79,7 +80,7 @@ namespace Neuromancers {
 
 					float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
 
-					if (distance < MAX_CONNECTION_RANGE) {
+					if (distance < MAX_CONNECTION_RANGE && sourceNeuron.GetConnectionCount() < MAX_CONNECTION_COUNT) {
 
 						Connection newConnection = CreateConnection(sourceNeuron,destinationNeuron);
 						sourceNeuron.AddConnection (newConnection);

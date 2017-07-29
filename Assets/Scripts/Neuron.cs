@@ -9,7 +9,7 @@ namespace Neuromancers {
        
 		//readonly 
 		protected readonly float FIRE_DELAY = 1f;
-
+		protected readonly float MIN_FIRE_INTERVAL = .2f;
 
 		//Serialized
 //		public List<Neuron> neighbors = new List<Neuron> ();
@@ -20,9 +20,11 @@ namespace Neuromancers {
 		protected List<Connection> allConnections;
 		protected NeuronRenderer neuronRenderer;
 		//Primitives
+		protected float lastFireTime;
 		Vector3 strScale;
 		private bool neighborNode = false;
 		private float energyLevel = 0f;
+
 
 		//properties
 //		public float EnergyLevel {
@@ -47,6 +49,7 @@ namespace Neuromancers {
 
 			this.allConnections = new List<Connection>();
 			this.neuronRenderer = GetComponentInChildren<NeuronRenderer>();
+			GetComponent<Button>().SelectedActionSimple += OnMouseDown;
 		}
 
 		protected void Start () {
@@ -55,7 +58,7 @@ namespace Neuromancers {
 
 			strScale = transform.localScale;
 		}
-
+//		[EditorButtonAttribute]
 		protected void Update() {
 
 			this.energyLevel -= Time.deltaTime*.2f;
@@ -68,6 +71,7 @@ namespace Neuromancers {
 		//
 		// Neuron Functions
 		//
+
 
 		public void AddConnection(Connection newConnection) {
 
@@ -85,24 +89,31 @@ namespace Neuromancers {
 		public GameObject spherePrefab;
 
 		public void Fire () {
-			
+
+			lastFireTime = Time.time;
 //			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
 //			matAnim.ClearAllAnimations ();
 //			matAnim.AddColorStartAnimation (Color.white, Color.red, loopCount: 1, duration: .5f);
 		
 			for (int i = 0; i < allConnections.Count; ++i) {
 
-				Neuron n = allConnections[i].DestinationNeuron;
+				Connection c = allConnections[i];
+				Neuron n = c.DestinationNeuron;
 	
 				GameObject pathGO = Instantiate (spherePrefab) as GameObject;
-				pathGO.transform.position = this.transform.position;
+				pathGO.transform.position = c.GetWorldStartPosition();
+				pathGO.GetComponent<Renderer>().material.SetColor("_TintColor",c.GetColor());
 				pathGO.GetComponent<UIPrimitives.UITransformAnimator> ().AddPositionEndAnimation (n.transform.position, FIRE_DELAY, UIPrimitives.UIAnimationUtility.EaseType.easeInOutSine);
 				Destroy (pathGO, FIRE_DELAY);
 
-				StartCoroutine(n.ImpluseTrigger (allConnections[i].Strength));
+				StartCoroutine(n.ImpluseTrigger (c.Strength));
 			}
-			// }
 
+		}
+
+		public int GetConnectionCount() {
+
+			return this.allConnections.Count;
 		}
 
 		public IEnumerator ImpluseTrigger (float delta) {
@@ -112,9 +123,10 @@ namespace Neuromancers {
 			this.energyLevel += delta;
 			this.energyLevel = Mathf.Clamp01(this.energyLevel);
 
-			if(this.energyLevel == 1f) {
+			if(this.energyLevel == 1f && (Time.time - lastFireTime) > MIN_FIRE_INTERVAL) {
 
 				Fire ();
+
 			}
 		}
 
