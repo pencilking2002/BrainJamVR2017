@@ -2,58 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConnectionLine : MonoBehaviour {
+namespace Neuromancers
+{
+    public class ConnectionLine : MonoBehaviour
+    {
 
-	public Neuron self;
-	public Neuron other;
+        public Neuron self;
+        public Neuron other;
 
-	List<Transform> pathNodes;// = new List<Transform>();
+        List<Transform> pathNodes;// = new List<Transform>();
 
-	public float precent = 0;
+        public float precent = 0;
 
-	LineRenderer lr;
+        LineRenderer lr;
 
-	// Use this for initialization
-	void Awake () {
-		
-	}
+        // Use this for initialization
+        void Awake()
+        {
 
-	public ConnectionLine SetUp(Neuron setSelf, Neuron setOther ){
+        }
 
-		lr  = GetComponent<LineRenderer>();
-		lr.startWidth = 0.1f;
-		lr.endWidth = 0.1f;
+        public ConnectionLine SetUp(Neuron setSelf, Neuron setOther)
+        {
 
-		self = setSelf;
-		other = setOther;
-		precent = 1;
+            lr = GetComponent<LineRenderer>();
+            lr.startWidth = 0.1f;
+            lr.endWidth = 0.1f;
 
-
-		pathNodes = new List<Transform>();
-
-		pathNodes.Add(self.gameObject.transform);
-		pathNodes.Add(other.gameObject.transform);
-
-		lr.positionCount = pathNodes.Count;
-
-		for (int i = 0; i < pathNodes.Count; i++){
-			lr.SetPosition(i, pathNodes[i].transform.position);
-		}
+            self = setSelf;
+            other = setOther;
+            precent = 1;
 
 
-		return this;
-	}
+            pathNodes = new List<Transform>();
 
-	
-	// Update is called once per frame
-	void Update () {
+            pathNodes.Add(self.gameObject.transform);
+            pathNodes.Add(other.gameObject.transform);
 
-		if(lr){
+            lr.positionCount = pathNodes.Count;
 
-			for (int i = 0; i < pathNodes.Count; i++){
-				lr.SetPosition(i, pathNodes[i].transform.position);
-			}
-		}
+            for (int i = 0; i < pathNodes.Count; i++)
+            {
+                lr.SetPosition(i, pathNodes[i].transform.position);
+            }
 
-	}
+
+            return this;
+        }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+
+            if (lr)
+            {
+
+                for (int i = 0; i < pathNodes.Count; i++)
+                {
+                    lr.SetPosition(i, pathNodes[i].transform.position);
+                }
+            }
+
+        }
+    }
 }
