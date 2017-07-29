@@ -7,24 +7,31 @@ namespace Neuromancers {
 	
 	public class Neuron : MonoBehaviour {
        
-		public List<Neuron> neighbors = new List<Neuron> ();
+		//readonly 
+		protected readonly float FIRE_DELAY = 1f;
+		protected readonly float MIN_FIRE_INTERVAL = .2f;
 
-		public Renderer render;
+		//Serialized
+//		public List<Neuron> neighbors = new List<Neuron> ();
+//		public Renderer render;
 
-		Vector3 strScale;
 		/////Protected/////
 		//References
 		protected List<Connection> allConnections;
+		protected NeuronRenderer neuronRenderer;
 		//Primitives
+		protected float lastFireTime;
+		Vector3 strScale;
 		private bool neighborNode = false;
-		private float currentTemperature = 0f;
+		private float energyLevel = 0f;
+
 
 		//properties
-		public float CurrentTemperature {
-			get { return currentTemperature; }
-			set  { currentTemperature = value; }
-		}
-
+//		public float EnergyLevel {
+//			get { return energyLevel; }
+//			set  { energyLevel = value; }
+//		}
+//
 		public bool NeighborNode {
 			get { return neighborNode; }
 			set {
@@ -41,6 +48,8 @@ namespace Neuromancers {
 		protected void Awake () {
 
 			this.allConnections = new List<Connection>();
+			this.neuronRenderer = GetComponentInChildren<NeuronRenderer>();
+			GetComponent<Button>().SelectedActionSimple += OnMouseDown;
 		}
 
 		protected void Start () {
@@ -49,13 +58,20 @@ namespace Neuromancers {
 
 			strScale = transform.localScale;
 		}
+//		[EditorButtonAttribute]
+		protected void Update() {
 
+			this.energyLevel -= Time.deltaTime*.2f;
+			this.energyLevel = Mathf.Clamp01(this.energyLevel);
+			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
+		}
 
 
 		///////////////////////////////////////////////////////////////////////////
 		//
 		// Neuron Functions
 		//
+
 
 		public void AddConnection(Connection newConnection) {
 
@@ -72,61 +88,56 @@ namespace Neuromancers {
 		/// 
 		public GameObject spherePrefab;
 
-		public void SelectNode (Neuron parent) {
+		public void Fire () {
 
-//			LeanTween.scale (transform.Find("View").gameObject, strScale * 1.5f, 0.2f).setLoopPingPong (1);
-			//render.material.color = Color.red;
-			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
-			matAnim.ClearAllAnimations ();
-			matAnim.AddColorStartAnimation (Color.white, Color.red, loopCount: 1, duration: .5f);
-			//  if (!neighborNode)
-			//   {
-			/* foreach (Neuron neighbor in neighbors)
-             {
-
-                 neighbor.ImpluseTrigger(1.1f);
-                 neighborNode = true;
-             }*/
-
+			lastFireTime = Time.time;
+//			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
+//			matAnim.ClearAllAnimations ();
+//			matAnim.AddColorStartAnimation (Color.white, Color.red, loopCount: 1, duration: .5f);
+		
 			for (int i = 0; i < allConnections.Count; ++i) {
 
-				Neuron n = allConnections[i].DestinationNeuron;
+				Connection c = allConnections[i];
+				Neuron n = c.DestinationNeuron;
 	
 				GameObject pathGO = Instantiate (spherePrefab) as GameObject;
-				pathGO.transform.position = parent.transform.position;
-				pathGO.GetComponent<UIPrimitives.UITransformAnimator> ().AddPositionEndAnimation (n.transform.position, 1.1f, UIPrimitives.UIAnimationUtility.EaseType.easeInOutSine);
-				Destroy (pathGO, 1.1f);
-				n.ImpluseTrigger (1.1f);
+				pathGO.transform.position = c.GetWorldStartPosition();
+				pathGO.GetComponent<Renderer>().material.SetColor("_TintColor",c.GetColor());
+				pathGO.GetComponent<UIPrimitives.UITransformAnimator> ().AddPositionEndAnimation (n.transform.position, FIRE_DELAY, UIPrimitives.UIAnimationUtility.EaseType.easeInOutSine);
+				Destroy (pathGO, FIRE_DELAY);
+
+				StartCoroutine(n.ImpluseTrigger (c.Strength));
 			}
-			// }
 
 		}
 
-		public void ImpluseTrigger (float delta) {
-			CurrentTemperature += delta;
-			//gameObject.transform.localScale *= delta;
-			// gameObject.GetComponent<Renderer>().material.color = Color.red;
+		public int GetConnectionCount() {
 
-			StartCoroutine ("Wait", 0.6f);
+			return this.allConnections.Count;
+		}
+
+		public IEnumerator ImpluseTrigger (float delta) {
+
+			yield return new WaitForSeconds (FIRE_DELAY);
+
+			this.energyLevel += delta;
+			this.energyLevel = Mathf.Clamp01(this.energyLevel);
+
+			if(this.energyLevel == 1f && (Time.time - lastFireTime) > MIN_FIRE_INTERVAL) {
+
+				Fire ();
+
+			}
 		}
 
 		private void OnMouseDown () {
           
-
+			this.energyLevel = 1f;
 			neighborNode = false;
-			SelectNode (this);
-			Debug.Log ("WE ARE WORKING AT POWER LEVEL 9000");
+			Fire ();
+//			Debug.Log ("WE ARE WORKING AT POWER LEVEL 9000");
 		}
 
-
-
-
-
-    
-		IEnumerator Wait (float seconds) {
-			yield return new WaitForSeconds (seconds);
-			SelectNode (this);
-		}
 
 	}
 }

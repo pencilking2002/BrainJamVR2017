@@ -7,6 +7,7 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
+		protected readonly int MAX_CONNECTION_COUNT = 2;
 		protected readonly int NEURON_COUNT = 50;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
@@ -79,7 +80,7 @@ namespace Neuromancers {
 
 					float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
 
-					if (distance < MAX_CONNECTION_RANGE) {
+					if (distance < MAX_CONNECTION_RANGE && sourceNeuron.GetConnectionCount() < MAX_CONNECTION_COUNT) {
 
 						Connection newConnection = CreateConnection(sourceNeuron,destinationNeuron);
 						sourceNeuron.AddConnection (newConnection);
@@ -216,40 +217,40 @@ namespace Neuromancers {
 			}
 		}
 
-		void DrawConnectionsOfEachNeuron () {
-
-			// Each connection made has a line render and a precent 
-
-			/*	foreach (Neuron n in nodes) {
-
-
-                    n.gameObject.AddComponent<ConnectionLine>();
-                    n.gameObject.AddComponent<LineRenderer>();
-
-                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
-
-                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
-
-                    line.SetUp(n, randNeuron);
-                }*/
-
-			foreach (Neuron n in neurons) {
-
-
-				List<Neuron> neighbors = n.neighbors;
-
-
-				foreach (Neuron neighbor in neighbors) {
-
-					n.gameObject.AddComponent<ConnectionLine> ();
-					n.gameObject.AddComponent<LineRenderer> ();
-
-					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
-					line.SetUp (n, neighbor);
-
-				}
-			}
-		}
+//		void DrawConnectionsOfEachNeuron () {
+//
+//			// Each connection made has a line render and a precent 
+//
+//			/*	foreach (Neuron n in nodes) {
+//
+//
+//                    n.gameObject.AddComponent<ConnectionLine>();
+//                    n.gameObject.AddComponent<LineRenderer>();
+//
+//                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+//
+//                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+//
+//                    line.SetUp(n, randNeuron);
+//                }*/
+//
+//			foreach (Neuron n in neurons) {
+//
+//
+//				List<Neuron> neighbors = n.neighbors;
+//
+//
+//				foreach (Neuron neighbor in neighbors) {
+//
+//					n.gameObject.AddComponent<ConnectionLine> ();
+//					n.gameObject.AddComponent<LineRenderer> ();
+//
+//					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
+//					line.SetUp (n, neighbor);
+//
+//				}
+//			}
+//		}
 
 		public List<Neuron> getNodeInRange (Neuron nodeToCheck, float range) {
 

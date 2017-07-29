@@ -156,7 +156,7 @@ namespace UIPrimitives
 
 		public IEnumerator Reset(float delay = 0)
 		{
-			this.OnPointerExit(null);
+//			this.OnPointerExit(null);
 			this.fillPercent = 0;
 			PercentChanged();
 
@@ -166,7 +166,7 @@ namespace UIPrimitives
 
 			yield return new WaitForSeconds(delay);
 
-			SetButtonState(ButtonState.Normal);
+//			SetButtonState(ButtonState.Normal);
 		}
 
 		////////////////////////////////////////
