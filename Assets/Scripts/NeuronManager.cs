@@ -58,7 +58,7 @@ namespace Neuromancers {
 				Neuron node = newNeuronGO.GetComponent<Neuron> ();
 				neurons.Add (node);
 
-				newNeuronGO.transform.position = GetRandomNeuronPosition ();
+				newNeuronGO.transform.position = GetPositionInNightSky(); //GetRandomNeuronPosition ();
 				newNeuronGO.transform.parent = this.transform;
 			}
 
@@ -122,7 +122,66 @@ namespace Neuromancers {
 			return randomPos;
 		}
 
-	
+		Vector3 GetPositionInNightSky(){
+
+			Debug.Log("Get Night Position " );
+
+			bool goodDist = false;
+			bool goodVerticalAngle = false;
+
+			float radiusMin = 7;
+			float radiusMax = 10;
+			// angle left 
+			// angle right
+			// angle button
+			// angle top
+
+			Vector3 centerVec = new Vector3 (0, 0, 0);
+			Vector3 pnt = Vector3.zero;
+
+
+			int conditions = 0;
+
+			while(conditions <= 1)
+			{
+				conditions = 0;
+			
+				pnt = Random.insideUnitSphere * radiusMax;
+		
+				goodVerticalAngle = false;
+
+
+
+
+				float angle;
+				angle =	CalculateAngle(pnt, centerVec);
+
+				if(150 > angle && angle > 100){
+					
+					goodVerticalAngle = true;
+					conditions++;
+				}
+			
+				float distFromCenter = Vector3.Distance(pnt, centerVec);
+
+				if(distFromCenter > radiusMin)
+				{
+					goodDist = true;
+					conditions++;
+				}
+			}
+
+			return pnt;
+		}
+
+				
+		public static float CalculateAngle(Vector3 from, Vector3 to)
+		{
+			return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
+		}
+				
+
+
 		void DrawConnections () {
 
 			// Each connection made has a line render and a precent 
