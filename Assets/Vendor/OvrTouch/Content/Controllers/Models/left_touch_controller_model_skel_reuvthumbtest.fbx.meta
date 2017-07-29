@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: b3dd7032219284b808739c779588adfd
+timeCreated: 1484078266
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: lctrl_b_button01
+    100002: lctrl_b_button02
+    100004: lctrl_b_hold
+    100006: lctrl_b_stick
+    100008: lctrl_b_stick_IGNORE
+    100010: lctrl_b_trigger
+    100012: lctrl_controller_body_PLY
+    100014: lctrl_geometry_null
+    100016: lctrl_left_touch_controller_world
+    100018: lctrl_main_trigger_PLY
+    100020: lctrl_ring_PLY
+    100022: lctrl_side_trigger_PLY
+    100024: lctrl_surface_PLY
+    100026: lctrl_thumbstick_ball_PLY
+    100028: lctrl_x_button_PLY
+    100030: lctrl_y_button_PLY
+    100032: //RootNode
+    100034: rig_controller_rig_grp
+    100036: rig_f_world
+    100038: Skin
+    100040: Skin_2
+    100042: Skin_3
+    100044: Skin_4
+    100046: Skin_5
+    100048: Skin_6
+    100050: Skin_7
+    100052: Skin_8
+    100054: lctrl_thumbstick_ball_PLY_reuv
+    100056: Skin_2_2
+    100058: Skin_3_2
+    100060: Skin_4_2
+    100062: Skin_5_2
+    100064: Skin_6_2
+    100066: Skin_7_2
+    100068: Skin_8_2
+    100070: Skin_9
+    400000: lctrl_b_button01
+    400002: lctrl_b_button02
+    400004: lctrl_b_hold
+    400006: lctrl_b_stick
+    400008: lctrl_b_stick_IGNORE
+    400010: lctrl_b_trigger
+    400012: lctrl_controller_body_PLY
+    400014: lctrl_geometry_null
+    400016: lctrl_left_touch_controller_world
+    400018: lctrl_main_trigger_PLY
+    400020: lctrl_ring_PLY
+    400022: lctrl_side_trigger_PLY
+    400024: lctrl_surface_PLY
+    400026: lctrl_thumbstick_ball_PLY
+    400028: lctrl_x_button_PLY
+    400030: lctrl_y_button_PLY
+    400032: //RootNode
+    400034: rig_controller_rig_grp
+    400036: rig_f_world
+    400038: Skin
+    400040: Skin_2
+    400042: Skin_3
+    400044: Skin_4
+    400046: Skin_5
+    400048: Skin_6
+    400050: Skin_7
+    400052: Skin_8
+    400054: lctrl_thumbstick_ball_PLY_reuv
+    400056: Skin_2_2
+    400058: Skin_3_2
+    400060: Skin_4_2
+    400062: Skin_5_2
+    400064: Skin_6_2
+    400066: Skin_7_2
+    400068: Skin_8_2
+    400070: Skin_9
+    4300000: lctrl_controller_body_PLY
+    4300002: lctrl_main_trigger_PLY
+    4300004: lctrl_side_trigger_PLY
+    4300006: lctrl_thumbstick_ball_PLY
+    4300008: lctrl_ring_PLY
+    4300010: lctrl_surface_PLY
+    4300012: lctrl_x_button_PLY
+    4300014: lctrl_y_button_PLY
+    4300016: lctrl_thumbstick_ball_PLY_reuv
+    9500000: //RootNode
+    13700000: lctrl_controller_body_PLY
+    13700002: lctrl_main_trigger_PLY
+    13700004: lctrl_ring_PLY
+    13700006: lctrl_side_trigger_PLY
+    13700008: lctrl_surface_PLY
+    13700010: lctrl_thumbstick_ball_PLY
+    13700012: lctrl_x_button_PLY
+    13700014: lctrl_y_button_PLY
+    13700016: lctrl_thumbstick_ball_PLY_reuv
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
