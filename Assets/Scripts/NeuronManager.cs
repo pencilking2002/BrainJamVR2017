@@ -157,40 +157,40 @@ namespace Neuromancers {
 			}
 		}
 
-		void DrawConnectionsOfEachNeuron () {
-
-			// Each connection made has a line render and a precent 
-
-			/*	foreach (Neuron n in nodes) {
-
-
-                    n.gameObject.AddComponent<ConnectionLine>();
-                    n.gameObject.AddComponent<LineRenderer>();
-
-                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
-
-                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
-
-                    line.SetUp(n, randNeuron);
-                }*/
-
-			foreach (Neuron n in neurons) {
-
-
-				List<Neuron> neighbors = n.neighbors;
-
-
-				foreach (Neuron neighbor in neighbors) {
-
-					n.gameObject.AddComponent<ConnectionLine> ();
-					n.gameObject.AddComponent<LineRenderer> ();
-
-					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
-					line.SetUp (n, neighbor);
-
-				}
-			}
-		}
+//		void DrawConnectionsOfEachNeuron () {
+//
+//			// Each connection made has a line render and a precent 
+//
+//			/*	foreach (Neuron n in nodes) {
+//
+//
+//                    n.gameObject.AddComponent<ConnectionLine>();
+//                    n.gameObject.AddComponent<LineRenderer>();
+//
+//                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+//
+//                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+//
+//                    line.SetUp(n, randNeuron);
+//                }*/
+//
+//			foreach (Neuron n in neurons) {
+//
+//
+//				List<Neuron> neighbors = n.neighbors;
+//
+//
+//				foreach (Neuron neighbor in neighbors) {
+//
+//					n.gameObject.AddComponent<ConnectionLine> ();
+//					n.gameObject.AddComponent<LineRenderer> ();
+//
+//					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine> ();
+//					line.SetUp (n, neighbor);
+//
+//				}
+//			}
+//		}
 
 		public List<Neuron> getNodeInRange (Neuron nodeToCheck, float range) {
 

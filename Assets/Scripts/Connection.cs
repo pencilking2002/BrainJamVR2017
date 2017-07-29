@@ -8,7 +8,9 @@ namespace Neuromancers {
 		//readonly
 
 		//Serialized
-		
+		[SerializeField]
+		protected Gradient strengthToColorGradient;
+
 		/////Protected/////
 		//References
 		protected Neuron destinationNeuron;
@@ -57,6 +59,10 @@ namespace Neuromancers {
 		public void SetData (float strength, Neuron destinationNeuron) {
 
 			this.strength = strength;
+			Color color = this.strengthToColorGradient.Evaluate((strength+1f)/2f);
+			lineRenderer.startColor = color.Alpha(lineRenderer.startColor.a);
+			lineRenderer.endColor = color.Alpha(lineRenderer.endColor.a);
+
 			this.destinationNeuron = destinationNeuron;
 //			Debug.Log(lineRenderer.gameObject.name);
 //			Debug.Log(destinationNeuron.transform.position);

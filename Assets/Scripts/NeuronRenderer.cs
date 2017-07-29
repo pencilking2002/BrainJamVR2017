@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Neuromancers {
-	[ExecuteInEditMode]
+//	[ExecuteInEditMode]
 	public class NeuronRenderer : MonoBehaviour {
 		
 		//readonly
@@ -33,7 +33,7 @@ namespace Neuromancers {
 		
 		protected void Awake () {
 
-			sphereMaterial = sphereRenderer.sharedMaterial;
+			sphereMaterial = sphereRenderer.material;
 			canvasGroup = GetComponent<CanvasGroup>();
 		}
 
@@ -43,6 +43,7 @@ namespace Neuromancers {
 
 		protected void Update () {
 
+
 			UpdateAppearance();
 		}
 
@@ -51,8 +52,14 @@ namespace Neuromancers {
 		// NeuronRenderer Functions
 		//
 
+		public void SetEnergyLevel(float newEnergyLevel) {
+
+			this.energyLevel = newEnergyLevel;
+		}
+
 		protected void UpdateAppearance() {
 
+//			this.energyLevel = 1f;
 			UpdateGlowScale ();
 
 			sphereMaterial.SetFloat("_RimIntensity",MAX_RIM_INTENSITY*energyLevel);
