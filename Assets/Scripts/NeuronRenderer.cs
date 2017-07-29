@@ -54,7 +54,7 @@ namespace Neuromancers {
 
 		public void SetEnergyLevel(float newEnergyLevel) {
 
-			this.energyLevel = newEnergyLevel;
+			this.energyLevel = Mathf.Clamp(newEnergyLevel,.03f,1f);
 		}
 
 		protected void UpdateAppearance() {

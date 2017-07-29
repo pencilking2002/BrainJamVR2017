@@ -66,7 +66,19 @@ namespace Neuromancers {
 			this.destinationNeuron = destinationNeuron;
 //			Debug.Log(lineRenderer.gameObject.name);
 //			Debug.Log(destinationNeuron.transform.position);
+			lineRenderer.SetPosition(0, Utility.Utility.GetRandomVector3(.05f));
 			lineRenderer.SetPosition(1,transform.parent.InverseTransformPoint(destinationNeuron.transform.position));
+		}
+
+		public Vector3 GetWorldStartPosition() {
+
+			return transform.TransformPoint(lineRenderer.GetPosition(0));
+		}
+
+		public Color GetColor() {
+
+			Color color = this.strengthToColorGradient.Evaluate((strength+1f)/2f);
+			return color;
 		}
 
 		
