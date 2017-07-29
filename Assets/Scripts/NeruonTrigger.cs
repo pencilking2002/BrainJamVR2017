@@ -11,7 +11,8 @@ namespace Neuromancers
     {
         //readonly
         //Serialized
-        
+        [Tooltip("Put Parent Neuron object here")]
+        public GameObject Neuron; 
 
         /////Protected/////
         //References
@@ -22,27 +23,16 @@ namespace Neuromancers
         // Inherited from MonoBehaviour
         //
 
-        protected void Awake()
-        {
-        }
-
-        protected void Start()
-        {
-            
-        }
-
+        /// <summary>
+        /// add all neuron found when trigger is enabled in the range of the trigger
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
-
+            
+            this.gameObject.GetComponent<Neuron>().neighbors.Add(other.gameObject.GetComponent<Neuron>());
         }
 
-        ///////////////////////////////////////////////////////////////////////////
-        //
-        // #SCRIPTNAME# Functions
-        //
 
-        ////////////////////////////////////////
-        //
-        // Function Functions
     }
 }

@@ -21,9 +21,9 @@ public class BrainController : MonoBehaviour {
 			//float offSetY = 3;
 		
 			// Place nodes
-			for( int i = 0; i < 200 ; i++){
+			for( int i = 0; i < 50 ; i++){
 
-				go = Instantiate(Resources.Load("Neuron")) as GameObject;
+				go = Instantiate(Resources.Load("Prefabs/Neuron")) as GameObject;
 
 				Neuron node = go.GetComponent<Neuron>();
 				nodes.Add(node);
@@ -33,6 +33,9 @@ public class BrainController : MonoBehaviour {
 				go.transform.parent = nodeGo.transform;
 			}
 
+            DrawConnectionsOfEachNeuron();
+
+            //DrawConnections();
 
 	}
 
@@ -40,9 +43,9 @@ public class BrainController : MonoBehaviour {
 	{
 		Vector3 centerVec = new Vector3( 0,0,0);
 		
-		float rangeX = 10;
-		float rangeY = 10;
-		float rangeZ = 10;
+		float rangeX = 4;
+		float rangeY = 4;
+		float rangeZ = 4;
 
 		Vector3 randomPos = new Vector3(
 				Random.Range(rangeX * -1, rangeX),
@@ -54,10 +57,111 @@ public class BrainController : MonoBehaviour {
 		return randomPos;
 	}
 
-	/*
+	
+	void DrawConnections(){
+
+			// Each connection made has a line render and a precent 
+
+		/*	foreach (Neuron n in nodes) {
+
+	
+				n.gameObject.AddComponent<ConnectionLine>();
+				n.gameObject.AddComponent<LineRenderer>();
+
+				ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+
+				Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+
+				line.SetUp(n, randNeuron);
+			}*/
+
+			foreach (Neuron n in nodes) {
+
+				List<Neuron> neighbors = getNodeInRange(n, 3f);
+
+			
+
+				foreach (Neuron neighbor in neighbors) {
+
+					n.gameObject.AddComponent<ConnectionLine>();
+					n.gameObject.AddComponent<LineRenderer>();
+
+					ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+					line.SetUp(n, neighbor);
+
+				}
+			}
+	}
+
+        void DrawConnectionsOfEachNeuron()
+        {
+
+            // Each connection made has a line render and a precent 
+
+            /*	foreach (Neuron n in nodes) {
+
+
+                    n.gameObject.AddComponent<ConnectionLine>();
+                    n.gameObject.AddComponent<LineRenderer>();
+
+                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+
+                    Neuron randNeuron = nodes[Random.Range( 0, nodes.Count )];
+
+                    line.SetUp(n, randNeuron);
+                }*/
+
+            foreach (Neuron n in nodes)
+            {
+
+
+                List<Neuron> neighbors = n.neighbors;
+
+
+                foreach (Neuron neighbor in neighbors)
+                {
+
+                    n.gameObject.AddComponent<ConnectionLine>();
+                    n.gameObject.AddComponent<LineRenderer>();
+
+                    ConnectionLine line = n.gameObject.GetComponent<ConnectionLine>();
+                    line.SetUp(n, neighbor);
+
+                }
+            }
+        }
+
+        public List<Neuron> getNodeInRange( Neuron nodeToCheck, float range){
+
+			List<Neuron> neighbors = new List<Neuron>();
+
+			foreach (Neuron n in nodes) {
+
+				float dist = Vector3.Distance(nodeToCheck.gameObject.transform.position, n.gameObject.transform.position);
+
+				if(dist < range){
+
+					neighbors.Add(n);
+				}
+			}
+
+			// pick random close object
+
+
+			return neighbors;
+	}
+
+     /*   public List<Neuron> cleanNeighborList(List<Neuron> listOfNeighbors, Neuron nodeToCheck)
+        {
+
+        }
+        */
+
+
+    /*
 	 * START SINGLETON
 	 */
-	private static BrainController singleton;
+    private static BrainController singleton;
 
 	public static BrainController getSingleton ()
 	{
@@ -65,13 +169,13 @@ public class BrainController : MonoBehaviour {
 
 			GameObject go = new GameObject ("| Brain |");
 			singleton = go.AddComponent<BrainController> ();
-			singleton.TryInit ();
+		    singleton.TryInit ();
 		}
 
 		return singleton;
 	}
 
-	void Start ()
+	/*void Start ()
 	{
 			singleton = this;
 
@@ -82,14 +186,16 @@ public class BrainController : MonoBehaviour {
 			Destroy (this);
 		}*/
 
-		SetUp();
-	}
+		
+	//}
 
 	void TryInit ()
 	{
 		DontDestroyOnLoad (gameObject);
 		singleton = this;
-	}
+
+            SetUp();
+        }
 	/*
 	 * END SINGLETON
 	 */

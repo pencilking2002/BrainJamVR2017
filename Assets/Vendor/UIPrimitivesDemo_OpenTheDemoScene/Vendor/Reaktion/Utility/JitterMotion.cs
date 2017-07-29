@@ -63,6 +63,13 @@ public class JitterMotion : MonoBehaviour
         initialRotation = transform.localRotation;
     }
 
+	void Start(){
+
+
+		initialPosition = transform.localPosition;
+		initialRotation = transform.localRotation;
+	}
+
     void Update()
     {
         timePosition += Time.deltaTime * positionFrequency;
