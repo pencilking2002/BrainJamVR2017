@@ -2004,9 +2004,7 @@ public static class OVRInput
 		{
 			controllerType = Controller.Gamepad;
 
-			#if !UNITY_EDITOR_OSX
 			initialized = OVR_GamepadController_Initialize();
-			#endif
 		}
 
 		~OVRControllerGamepadMac()

@@ -81,6 +81,7 @@ namespace Neuromancers
             {
                 if (!neuronTigger)
                 {
+                    
                     neuronTigger.SetActive(true);
                     Destroy(neuronTigger, 1f);
                 }
@@ -88,11 +89,6 @@ namespace Neuromancers
             }
 
     }
-
-   public void MakeNeighborsList(Neuron )
-   {
-
-   }
 
 
 

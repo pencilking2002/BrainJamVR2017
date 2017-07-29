@@ -723,6 +723,8 @@ namespace Neuromancers
 			
 			ClosestGameObjectData closestGameObjectData =  GetClosestGameObjectInList(motionControlGripEnterExitListeners,transform);
 			List<InteractiveGripEventData> gripEventData = new List<InteractiveGripEventData>();
+            if (closestGameObjectData.gameObject == null)
+                return;
 			IMotionControlGripEnterExitHandler closestHandler = closestGameObjectData.gameObject.GetComponent<IMotionControlGripEnterExitHandler>();
 
 			if(closestGameObjectData.gameObject!=null && closestGameObjectData.squaredDistance < MAXIMUM_GRIP_SQUARE_MAGNITUDE && closestHandler.IsGrippable()) {
