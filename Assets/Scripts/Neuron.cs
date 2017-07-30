@@ -122,14 +122,7 @@ namespace Neuromancers {
 				Audio.SoundEffect.Neuron_Fire3,
 				Audio.SoundEffect.Neuron_Fire4, 
 				Audio.SoundEffect.Neuron_Fire5,
-				Audio.SoundEffect.Neuron_Fire6, 
-				Audio.SoundEffect.Neuron_Fire7, 
-				Audio.SoundEffect.Neuron_Fire8,
-				Audio.SoundEffect.Neuron_Fire9, 
-				Audio.SoundEffect.Neuron_Fire10,
-				Audio.SoundEffect.Neuron_Fire11, 
-				Audio.SoundEffect.Neuron_Fire12,
-				Audio.SoundEffect.Neuron_Fire13};
+				};
 			
 			int MyIndex = UnityEngine.Random.Range(0,(MyArray.Length - 1));
 			Debug.Log(MyArray[MyIndex]);
