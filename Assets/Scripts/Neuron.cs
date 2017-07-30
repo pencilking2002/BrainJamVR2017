@@ -109,6 +109,31 @@ namespace Neuromancers {
 				StartCoroutine(n.ImpluseTrigger (c.Strength));
 			}
 
+			RandomSound();
+
+		}
+
+		void RandomSound(){
+
+
+			Audio.SoundEffect[] MyArray = { 
+				Audio.SoundEffect.Neuron_Fire1, 
+				Audio.SoundEffect.Neuron_Fire2, 
+				Audio.SoundEffect.Neuron_Fire3,
+				Audio.SoundEffect.Neuron_Fire4, 
+				Audio.SoundEffect.Neuron_Fire5,
+				Audio.SoundEffect.Neuron_Fire6, 
+				Audio.SoundEffect.Neuron_Fire7, 
+				Audio.SoundEffect.Neuron_Fire8,
+				Audio.SoundEffect.Neuron_Fire9, 
+				Audio.SoundEffect.Neuron_Fire10,
+				Audio.SoundEffect.Neuron_Fire11, 
+				Audio.SoundEffect.Neuron_Fire12};
+			
+			int MyIndex = UnityEngine.Random.Range(0,(MyArray.Length - 1));
+			Debug.Log(MyArray[MyIndex]);
+
+			Audio.Instance.PlaySoundEffect(MyArray[MyIndex]);
 		}
 
 		public int GetConnectionCount() {
