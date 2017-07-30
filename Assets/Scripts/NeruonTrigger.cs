@@ -30,7 +30,7 @@ namespace Neuromancers
         private void OnTriggerEnter(Collider other)
         {
             
-            this.gameObject.GetComponent<Neuron>().neighbors.Add(other.gameObject.GetComponent<Neuron>());
+//            this.gameObject.GetComponent<Neuron>().neighbors.Add(other.gameObject.GetComponent<Neuron>());
         }
 
 

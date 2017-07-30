@@ -13,9 +13,9 @@ Shader "Custom/Neuromancers/Neuron" {
 		_OffsetTex ("Vertex Offset Texture", 2d) = "white" {}
 	}
 	SubShader {
-		Pass {
-		Tags { "RenderType"="Geometry"
+		Tags { "RenderType"="Opaque"
 			"LightMode"="ForwardBase"}
+		Pass {
 			
 			CGPROGRAM
 			#pragma noambient noforwardadd nofog
@@ -43,15 +43,23 @@ Shader "Custom/Neuromancers/Neuron" {
 				float4 col : COLOR;
 				float4 texcoord : TEXCOORD0;
 			};
+
+           
 			
 			vertexOutput vert(vertexInput v){
 				vertexOutput o;
 				//Set position
 				o.texcoord=v.tex;
+
+				half4 offsetTex = tex2Dlod(_OffsetTex,float4(_OffsetTex_ST.xy*v.tex.xy,0.0,0.0));
+				float4 localPos = v.vertex * (.8 + .2*offsetTex * abs(_SinTime.z));
+				o.pos = UnityObjectToClipPos(localPos);
+
+
 				
 				//Calculate useful variables
 				half3 normalDirection = normalize(mul(float4(v.normal, 0.0), unity_WorldToObject).xyz);
-				half3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld,v.vertex).xyz);
+				half3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld,localPos).xyz);
 				half3 lightDirection= normalize(_WorldSpaceLightPos0.xyz);
 				
 				//Calculate diffuse color
@@ -68,18 +76,12 @@ Shader "Custom/Neuromancers/Neuron" {
 				//Calculate final color
 				o.col =float4(emissionColor+saturate(diffuseColor*rimColor),1.0);
 
-				half4 offsetTex = tex2Dlod(_OffsetTex,float4(_OffsetTex_ST.xy*v.tex.xy,0.0,0.0));
-				float4 localPos = v.vertex * (.8 + .4*offsetTex * _SinTime.z);
-
-
-				o.pos = UnityObjectToClipPos(localPos);
 
 				return o;
 			}
 			
 			float4 frag(vertexOutput o) : COLOR
 			{	
-
 				return o.col;
 			}
 			ENDCG
