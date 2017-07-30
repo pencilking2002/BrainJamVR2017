@@ -166,7 +166,7 @@ namespace UIPrimitives
 
 			yield return new WaitForSeconds(delay);
 
-//			SetButtonState(ButtonState.Normal);
+			SetButtonState(ButtonState.Hovered);
 		}
 
 		////////////////////////////////////////

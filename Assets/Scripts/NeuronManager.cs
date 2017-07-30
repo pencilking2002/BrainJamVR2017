@@ -7,14 +7,14 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
-		protected readonly int MAX_CONNECTION_COUNT = 2;
-		protected readonly int NEURON_COUNT = 50;
+		protected readonly int NEURON_COUNT = 100;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
+        protected readonly int MAX_NEURON_CONNECTIONS = 2;
 
-		//serialized
-		public List<Neuron> neurons = new List<Neuron> ();
+        //serialized
+        public List<Neuron> neurons = new List<Neuron> ();
 
 		//protected
 		protected GameObject neuronPrefab;
@@ -80,7 +80,7 @@ namespace Neuromancers {
 
 					float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
 
-					if (distance < MAX_CONNECTION_RANGE && sourceNeuron.GetConnectionCount() < MAX_CONNECTION_COUNT) {
+					if (distance < MAX_CONNECTION_RANGE && sourceNeuron.GetConnectionCount() < MAX_NEURON_CONNECTIONS) {
 
 						Connection newConnection = CreateConnection(sourceNeuron,destinationNeuron);
 						sourceNeuron.AddConnection (newConnection);
@@ -129,16 +129,12 @@ namespace Neuromancers {
 			bool goodDist = false;
 			bool goodVerticalAngle = false;
 
-			float radiusMin = 7;
+			float radiusMin = 4;
 			float radiusMax = 10;
-			// angle left 
-			// angle right
-			// angle button
-			// angle top
+		
 
-			Vector3 centerVec = new Vector3 (0, 0, 0);
+			Vector3 centerVec = new Vector3 (0, 0, -10);
 			Vector3 pnt = Vector3.zero;
-
 
 			int conditions = 0;
 
@@ -150,23 +146,31 @@ namespace Neuromancers {
 		
 				goodVerticalAngle = false;
 
-
-
-
 				float angle;
 				angle =	CalculateAngle(pnt, centerVec);
-
-				if(150 > angle && angle > 100){
+				if(130 > angle && angle > 50)
+				{
 					
-					goodVerticalAngle = true;
+
 					conditions++;
 				}
+
+				/*
+				float hAngle;
+				hAngle = CalculateAngleHorizon(pnt, centerVec);
+				if(180 > hAngle && hAngle > 90)
+				{
+
+
+					conditions++;
+				}*/
+
+				// change
 			
 				float distFromCenter = Vector3.Distance(pnt, centerVec);
 
 				if(distFromCenter > radiusMin)
 				{
-					goodDist = true;
 					conditions++;
 				}
 			}
@@ -178,6 +182,11 @@ namespace Neuromancers {
 		public static float CalculateAngle(Vector3 from, Vector3 to)
 		{
 			return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
+		}
+
+		public static float CalculateAngleHorizon(Vector3 from, Vector3 to)
+		{
+			return Quaternion.FromToRotation(Vector3.left, to - from).eulerAngles.z;
 		}
 				
 
