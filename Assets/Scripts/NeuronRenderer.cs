@@ -19,6 +19,10 @@ namespace Neuromancers {
 		protected float energyLevel = .5f;
 		[SerializeField]
 		protected Renderer sphereRenderer;
+		[SerializeField]
+		protected Color unclickedRimColor;
+		[SerializeField]
+		protected Color unclickedEmissionColor;
 
 		/////Protected/////
 		//References
@@ -26,7 +30,8 @@ namespace Neuromancers {
 		protected Material sphereMaterial;
 		//Primitives
 		protected Vector3 startLocalScale;
-		
+		protected Color startEmissionColor;
+		protected Color startRimColor;
 
 		///////////////////////////////////////////////////////////////////////////
 		//
@@ -36,6 +41,11 @@ namespace Neuromancers {
 		protected void Awake () {
 
 			sphereMaterial = sphereRenderer.material;
+			startEmissionColor = sphereMaterial.GetColor("_Color");
+			startRimColor = sphereMaterial.GetColor("_RimColor");
+			sphereMaterial.SetColor("_Color",unclickedEmissionColor);
+			sphereMaterial.SetColor("_RimColor",unclickedRimColor);
+
 			canvasGroup = GetComponent<CanvasGroup>();
 			startLocalScale = this.transform.localScale;
 		}
@@ -58,6 +68,13 @@ namespace Neuromancers {
 		public void SetEnergyLevel(float newEnergyLevel) {
 
 			this.energyLevel = Mathf.Clamp(newEnergyLevel,.3f,1f);
+
+			if(energyLevel==1f) {
+
+
+				sphereMaterial.SetColor("_Color",startEmissionColor);
+				sphereMaterial.SetColor("_RimColor",startRimColor);
+			}
 		}
 
 		protected void UpdateAppearance() {

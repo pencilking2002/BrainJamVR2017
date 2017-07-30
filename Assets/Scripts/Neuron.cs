@@ -64,9 +64,9 @@ namespace Neuromancers {
 
 		protected void Update() {
 
+			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
 			this.energyLevel -= Time.deltaTime*.2f;
 			this.energyLevel = Mathf.Clamp01(this.energyLevel);
-			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
 		}
 
 
@@ -135,7 +135,7 @@ namespace Neuromancers {
 				};
 			
 			int MyIndex = UnityEngine.Random.Range(0,(MyArray.Length - 1));
-			Debug.Log(MyArray[MyIndex]);
+//			Debug.Log(MyArray[MyIndex]);
 
 			Audio.Instance.PlaySoundEffect(MyArray[MyIndex]);
 		}
