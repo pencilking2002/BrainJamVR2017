@@ -7,7 +7,7 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
-		protected readonly int NEURON_COUNT = 60;
+		protected readonly int NEURON_COUNT = 100;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
@@ -129,8 +129,8 @@ namespace Neuromancers {
 			bool goodDist = false;
 			bool goodVerticalAngle = false;
 
-			float radiusMin = 2;
-			float radiusMax = 12;
+			float radiusMin = 4;
+			float radiusMax = 10;
 		
 
 			Vector3 centerVec = new Vector3 (0, 0, -10);
