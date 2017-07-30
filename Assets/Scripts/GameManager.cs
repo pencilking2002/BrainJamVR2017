@@ -35,6 +35,8 @@ namespace Neuromancers
                 instance = this;
             else if (instance != this)
                 Destroy(gameObject);
+
+            DontDestroyOnLoad(instance);
         }
 
         protected void Start()
@@ -60,6 +62,8 @@ namespace Neuromancers
         {
             if (Input.GetKeyDown("f2"))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (Input.GetKeyDown("f5"))
+                SceneManager.LoadScene("Ending");
         }
 
         IEnumerator Intro()
@@ -112,7 +116,7 @@ namespace Neuromancers
                  * if(){
                  * 
                  * gameStatus = GameState.Ending;
-                 * StartCoroutine("Ending");
+                 * StartCoroutine("FadeToEnd");
                  * 
                  * }
                  */
@@ -123,9 +127,9 @@ namespace Neuromancers
         IEnumerator Ending()
         {
             Instantiate(neuronManagerPrefab);
-            audio.clip = mainTheme;
-            audio.Play();
-            while (gameStatus == GameState.Main)
+          
+            
+            while (gameStatus == GameState.Ending)
             {
                 //TODO  CHECK THAT player has picked up controllers
                 /*
@@ -134,8 +138,20 @@ namespace Neuromancers
                  * }
                  */
 
-                StartCoroutine("Tutorial");
+                
             }
+            yield return null;
+        }
+
+        IEnumerator FadeToEnd()
+        {
+           while (audio.volume >= 0.1f)
+            {
+                audio.volume -= 0.05f;
+                yield return new WaitForSeconds(0.2f);
+            }
+            audio.Pause();
+            StartCoroutine("Ending");
             yield return null;
         }
     }
