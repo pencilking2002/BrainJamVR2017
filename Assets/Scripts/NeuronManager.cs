@@ -29,6 +29,8 @@ namespace Neuromancers {
 		public float radiusMax = 10;
 		[SerializeField]
 		protected bool showTutorial;
+		[SerializeField]
+		protected Button resetButton;
 
 		//protected
 		protected GameObject neuronPrefab;
@@ -45,6 +47,7 @@ namespace Neuromancers {
 
 			neuronPrefab = Resources.Load ("Prefabs/Neuron") as GameObject;
 			connectionPrefab = Resources.Load ("Prefabs/Connection") as GameObject;
+			resetButton.SelectedActionSimple+=OnResetButtonSelected;
 		}
 
 		protected void Start () {
@@ -182,6 +185,11 @@ namespace Neuromancers {
 
 
 			return newConnection;
+		}
+
+		protected void OnResetButtonSelected() {
+
+			UnityEngine.Application.LoadLevel(Application.loadedLevel);
 		}
 
 
