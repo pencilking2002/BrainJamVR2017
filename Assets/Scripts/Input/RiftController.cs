@@ -60,7 +60,7 @@ namespace Neuromancers
 		protected override void Update () {
 
 			base.Update ();
-
+            /*
 			bool shouldBeAnimatingSideTrigger = InputManager.Instance.IsMotionControlGripHovering(GetIndex()) && !IsMotionControlGripHeld() && !sideTriggerMaterialAnimator.IsAnimating();
 			if(shouldBeAnimatingSideTrigger!=isAnimatingSideTrigger) {
 
@@ -76,7 +76,7 @@ namespace Neuromancers
 				if(isAnimatingPrimaryTrigger)
 					primaryTriggerMaterialAnimator.AddColorEndAnimation(Color.green,"_EmissionColor",.5f, UIAnimationUtility.EaseType.easeOutSine,1,onCompleteAction: OnAnimationComplete);
 			}
-
+            */
 		}
 
 		///////////////////////////////////////////////////////////////////////////

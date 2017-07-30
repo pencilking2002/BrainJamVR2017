@@ -317,7 +317,7 @@ namespace Neuromancers
 
 		protected void UpdateLineRenderer() {
 
-			float lineRendererVisibilityPercent = 1f- (Time.time - lastValidCollisionTime) / LINE_RENDERER_FADE_DURATION;
+            float lineRendererVisibilityPercent = 1f;// - (Time.time - lastValidCollisionTime) / LINE_RENDERER_FADE_DURATION;
 			lineRenderer.enabled = lineRendererVisibilityPercent > 0;
 			if(lineRenderer.enabled) {
 				Color startColor = Color.white.Alpha(lineRendererStartAlpha*lineRendererVisibilityPercent);
