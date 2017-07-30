@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Neuromancers {
-	
+
+	public enum ConnectionType {
+
+		Unknown,
+		Excitory,
+		Inhibitory,
+	}
+
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly
-		protected readonly int TUTORIAL_NEURON_COUNT = 3;
+		protected readonly int TUTORIAL_NEURON_COUNT = 10;
 		protected readonly int NEURON_COUNT = 100;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
@@ -63,13 +70,23 @@ namespace Neuromancers {
 			//initial wait time
 			yield return new WaitForSeconds(1f);
 
+			//spawna  few neurons, one per second
 			for (int i = 0; i < TUTORIAL_NEURON_COUNT; ++i) {
 
 				Neuron neuron = CreateNeuron();
 				neuron.SetParticlesEnabled(true);
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(.1f);
 			}
 
+			//wait time before we start making connections
+			yield return new WaitForSeconds(1f);
+
+			//now we make the connections, one every second
+			for (int i = 0; i < neurons.Count; ++i) {
+
+				ConnectNeuron(i,true,true);
+				yield return new WaitForSeconds(.1f);
+			}
 
 		}
 
@@ -100,35 +117,47 @@ namespace Neuromancers {
 
 			for (int i = 0; i < neurons.Count; ++i) {
 
-				for (int j = 0; j < neurons.Count; ++j) {
-
-					//don't want to check against itself
-					if (j == i)
-						continue;
-
-					Neuron sourceNeuron = neurons [i];
-					Neuron destinationNeuron = neurons [j];
-
-
-					float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
-
-					//distance check
-					bool isWithinMaxDistance = distance < MAX_CONNECTION_RANGE;
-					//max connections check
-					bool isAboveMaxConnections = sourceNeuron.GetConnectionCount () < MAX_NEURON_CONNECTIONS;
-
-					//also check if we're already connected to it (done last for performance reasons)
-					if (isWithinMaxDistance && !isAboveMaxConnections && !sourceNeuron.IsConnectedTo(destinationNeuron)) {
-
-						Connection newConnection = CreateConnection (sourceNeuron, destinationNeuron);
-						sourceNeuron.AddConnection (newConnection);
-					}
-
-				}
+				ConnectNeuron(i);
 			}
 		}
 
-		protected Connection CreateConnection (Neuron sourceNeuron, Neuron destinationNeuron) {
+		protected void ConnectNeuron(int i, bool shouldIgnoreDistance = false, bool shouldAnimateConnection = false) {
+
+			for (int j = 0; j < neurons.Count; ++j) {
+
+				//don't want to check against itself
+				if (j == i)
+					continue;
+
+				Neuron sourceNeuron = neurons [i];
+				Neuron destinationNeuron = neurons [j];
+
+
+
+				//distance check
+				float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
+				bool isWithinMaxDistance = distance < MAX_CONNECTION_RANGE;
+//				Debug.Log("isWithinMaxDistance:" +isWithinMaxDistance);
+				//max connections check
+				bool isAboveMaxConnections = sourceNeuron.GetConnectionCount () >= MAX_NEURON_CONNECTIONS;
+				//also check if we're already connected to it (done last for performance reasons)
+				if ((isWithinMaxDistance||shouldIgnoreDistance) && !isAboveMaxConnections && !sourceNeuron.IsConnectedTo(destinationNeuron)) {
+
+					ConnectionType connectionType = ConnectionType.Unknown;
+					//We want each neuron's first connection to be excitory
+					if(sourceNeuron.GetConnectionCount() == 0)
+						connectionType = ConnectionType.Excitory;
+					//if the destination neuron is already connected to me and its type is excitory, then force my connection to him to be inhibitory
+					if(destinationNeuron.IsConnectedTo(sourceNeuron) && destinationNeuron.GetConnectionTypeToNeuron(sourceNeuron) == ConnectionType.Excitory)
+						connectionType = ConnectionType.Inhibitory;
+					Connection newConnection = CreateConnection (sourceNeuron, destinationNeuron, shouldAnimateConnection);
+					sourceNeuron.AddConnection (newConnection);
+				}
+
+			}
+		}
+
+		protected Connection CreateConnection (Neuron sourceNeuron, Neuron destinationNeuron,bool shouldAnimateConnection, ConnectionType connectionType = ConnectionType.Unknown) {
 
 			float connectionStrength = Random.Range (MIN_CONNECTION_STRENGTH, MAX_CONNECTION_STRENGTH);
 
@@ -137,7 +166,7 @@ namespace Neuromancers {
 			newConnectionGO.transform.Recenter ();
 
 			Connection newConnection = newConnectionGO.GetComponent<Connection> ();
-			newConnection.SetData (connectionStrength, destinationNeuron);
+			newConnection.SetData (connectionStrength, destinationNeuron,shouldAnimateConnection,connectionType);
 
 
 			return newConnection;
@@ -163,7 +192,7 @@ namespace Neuromancers {
 
 		Vector3 GetPositionInNightSky () {
 
-			Debug.Log ("Get Night Position ");
+//			Debug.Log ("Get Night Position ");
 
 			bool goodDist = false;
 			bool goodVerticalAngle = false;

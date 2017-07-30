@@ -59,7 +59,7 @@ namespace Neuromancers {
 
 			strScale = transform.localScale;
 		}
-//		[EditorButtonAttribute]
+
 		protected void Update() {
 
 			this.energyLevel -= Time.deltaTime*.2f;
@@ -130,6 +130,17 @@ namespace Neuromancers {
 			}
 
 			return false;
+		}
+
+		public ConnectionType GetConnectionTypeToNeuron(Neuron destinationNeuron) {
+
+			for (int i = 0; i < allConnections.Count; ++i) {
+
+				if(allConnections[i].DestinationNeuron == destinationNeuron)
+					return allConnections[i].MyConnectionType;
+			}
+
+			return ConnectionType.Unknown;
 		}
 
 		public IEnumerator ImpluseTrigger (float delta) {
