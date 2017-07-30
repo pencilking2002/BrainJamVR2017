@@ -26,7 +26,7 @@ namespace Neuromancers {
 		private float energyLevel = 0f;
 
 		//Actions
-		public Action FireAction;
+		public Action<Neuron> FireAction;
 
 
 		//properties
@@ -120,7 +120,7 @@ namespace Neuromancers {
 			RandomSound();
 
 			if(FireAction!=null)
-				FireAction();
+				FireAction(this);
 		}
 
 		void RandomSound(){
