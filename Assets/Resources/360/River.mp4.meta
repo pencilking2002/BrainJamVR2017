@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 4896100bdae23604f8bd98ee0a1212ee
-timeCreated: 1501444009
-licenseType: Free
+guid: 1c6357aacbe3443af94676b4b365da3c
+timeCreated: 1501446696
+licenseType: Pro
 VideoClipImporter:
   serializedVersion: 2
   useLegacyImporter: 0
@@ -12,7 +12,7 @@ VideoClipImporter:
   frameRange: 0
   startFrame: -1
   endFrame: -1
-  frameCount: 360
+  frameCount: 359
   frameRate: 29.970029830932617
   colorSpace: 0
   deinterlace: 0
@@ -26,7 +26,7 @@ VideoClipImporter:
   sourceAudioSampleRate: 80bb0000
   targetSettings: {}
   output:
-    format: 1
+    format: 0
     settings:
       enableTranscoding: 0
       codec: 0
@@ -39,7 +39,7 @@ VideoClipImporter:
     encodedWidth: 3840
     encodedHeight: 1920
     encodedStartFrame: 0
-    encodedEndFrame: 360
+    encodedEndFrame: 359
     streamedResource:
       source: 
       offset: 0

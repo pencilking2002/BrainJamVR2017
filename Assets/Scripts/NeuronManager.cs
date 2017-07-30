@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Neuromancers {
 
@@ -121,9 +122,11 @@ namespace Neuromancers {
 
 			FindObjectOfType<Utility_Fade>().StartFadeIn();
 
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(5f);
 
-			UnityEngine.Application.LoadLevel(UnityEngine.Application.loadedLevel+1);
+			//SceneManager.LoadSceneAsync(UnityEngine.Application.loadedLevel+1);
+			SceneManager.LoadScene(UnityEngine.Application.loadedLevel+1);
+			//UnityEngine.Application.LoadLevel(UnityEngine.Application.loadedLevel+1);
 		}
 
 
