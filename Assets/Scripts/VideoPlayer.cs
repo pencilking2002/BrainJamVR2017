@@ -21,8 +21,8 @@ namespace Neuromancers
         protected void Start()
         {
             vrPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-            if(!testMode)
-            vrPlayer.url = youtube360;
+          //  if(!testMode)
+       //     vrPlayer.url = youtube360;
         }
 
 
