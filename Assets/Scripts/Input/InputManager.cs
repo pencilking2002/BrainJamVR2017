@@ -446,7 +446,8 @@ namespace Neuromancers
 
 			if (this.activeInputModule == null)
 				return;
-			
+
+			this.activeInputModule.InteractiveGazeAction += OnInteractiveGaze;
 			this.activeInputModule.InteractiveRaycastAction += OnInteractiveRaycast;
 			this.activeInputModule.ScrollAction += OnMotionControlScroll;
 			this.activeInputModule.ThumbDownAction += OnMotionControlThumbDown;

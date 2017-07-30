@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +24,9 @@ namespace Neuromancers {
 		Vector3 strScale;
 		private bool neighborNode = false;
 		private float energyLevel = 0f;
+
+		//Actions
+		public Action FireAction;
 
 
 		//properties
@@ -58,12 +61,12 @@ namespace Neuromancers {
 
 			strScale = transform.localScale;
 		}
-//		[EditorButtonAttribute]
+
 		protected void Update() {
 
+			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
 			this.energyLevel -= Time.deltaTime*.2f;
 			this.energyLevel = Mathf.Clamp01(this.energyLevel);
-			this.neuronRenderer.SetEnergyLevel(this.energyLevel);
 		}
 
 
@@ -72,6 +75,10 @@ namespace Neuromancers {
 		// Neuron Functions
 		//
 
+		public void SetParticlesEnabled(bool value) {
+
+			GetComponentInChildren<ParticleSystem>().SetEmissionEnabled(value);
+		}
 
 		public void AddConnection(Connection newConnection) {
 
@@ -98,6 +105,7 @@ namespace Neuromancers {
 			for (int i = 0; i < allConnections.Count; ++i) {
 
 				Connection c = allConnections[i];
+				c.Fire();
 				Neuron n = c.DestinationNeuron;
 	
 				GameObject pathGO = Instantiate (spherePrefab) as GameObject;
@@ -111,6 +119,8 @@ namespace Neuromancers {
 
 			RandomSound();
 
+			if(FireAction!=null)
+				FireAction();
 		}
 
 		void RandomSound(){
@@ -125,7 +135,7 @@ namespace Neuromancers {
 				};
 			
 			int MyIndex = UnityEngine.Random.Range(0,(MyArray.Length - 1));
-			Debug.Log(MyArray[MyIndex]);
+//			Debug.Log(MyArray[MyIndex]);
 
 			Audio.Instance.PlaySoundEffect(MyArray[MyIndex]);
 		}
@@ -133,6 +143,28 @@ namespace Neuromancers {
 		public int GetConnectionCount() {
 
 			return this.allConnections.Count;
+		}
+
+		public bool IsConnectedTo(Neuron destinationNeuron) {
+
+			for (int i = 0; i < allConnections.Count; ++i) {
+
+				if(allConnections[i].DestinationNeuron == destinationNeuron)
+					return true;
+			}
+
+			return false;
+		}
+
+		public ConnectionType GetConnectionTypeToNeuron(Neuron destinationNeuron) {
+
+			for (int i = 0; i < allConnections.Count; ++i) {
+
+				if(allConnections[i].DestinationNeuron == destinationNeuron)
+					return allConnections[i].MyConnectionType;
+			}
+
+			return ConnectionType.Unknown;
 		}
 
 		public IEnumerator ImpluseTrigger (float delta) {

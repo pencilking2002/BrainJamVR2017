@@ -17,7 +17,6 @@ namespace Neuromancers.UI
 		//how many parents to check for IInteractable before giving up
 		protected readonly float MIN_SWIPE_DISTANCE = 50f;
 
-		public Action<List<InteractiveGazeEventData>> InteractiveGazeAction  { get; set; }
 
 //		public Action GlobalTriggerAction { get; set; }
 
@@ -110,7 +109,11 @@ namespace Neuromancers.UI
 			}
 			m_RaycastResultCache.Clear ();
 			pointerData.Reset ();
+			#if UNITY_EDITOR
 			pointerData.position = new Vector2 (hotspot.x * Screen.width, hotspot.y * Screen.height);
+			#else
+			pointerData.position = new Vector2(UnityEngine.VR.VRSettings.eyeTextureWidth/2, UnityEngine.VR.VRSettings.eyeTextureHeight / 2);
+			#endif
 			eventSystem.RaycastAll (pointerData, m_RaycastResultCache);
 
 			List<RaycastResult> resultsToRemove = new List<RaycastResult> ();
