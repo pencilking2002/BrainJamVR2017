@@ -15,6 +15,7 @@ namespace Neuromancers {
 
         //serialized
         public List<Neuron> neurons = new List<Neuron> ();
+		public float neuronColliderRadius = .1f;
 
 		//protected
 		protected GameObject neuronPrefab;
@@ -56,6 +57,7 @@ namespace Neuromancers {
 				GameObject newNeuronGO = Instantiate (neuronPrefab) as GameObject;
 
 				Neuron node = newNeuronGO.GetComponent<Neuron> ();
+				node.GetComponentInChildren<SphereCollider>().radius = neuronColliderRadius;
 				neurons.Add (node);
 
 				newNeuronGO.transform.position = GetPositionInNightSky(); //GetRandomNeuronPosition ();

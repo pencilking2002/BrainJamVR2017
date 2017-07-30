@@ -17,7 +17,6 @@ namespace Neuromancers.UI
 		//how many parents to check for IInteractable before giving up
 		protected readonly float MIN_SWIPE_DISTANCE = 50f;
 
-		public Action<List<InteractiveGazeEventData>> InteractiveGazeAction  { get; set; }
 
 //		public Action GlobalTriggerAction { get; set; }
 

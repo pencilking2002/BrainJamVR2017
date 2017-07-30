@@ -25,6 +25,7 @@ namespace Neuromancers.UI
 		//Primitives
 
 		//Actions
+		public Action<List<InteractiveGazeEventData>> InteractiveGazeAction  { get; set; }
 		public Action<List<InteractiveRaycastEventData>> InteractiveRaycastAction;
 		public Action<Vector2[]> ScrollAction;
 		public Action<int> ThumbDownAction;
