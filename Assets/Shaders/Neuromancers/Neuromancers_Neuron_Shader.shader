@@ -11,6 +11,8 @@ Shader "Custom/Neuromancers/Neuron" {
     	_RimIntensity ("Rim Intensity", Range(0.0,3.0)) = .5
 
 		_OffsetTex ("Vertex Offset Texture", 2d) = "white" {}
+
+		_VertexOffsetIntensity ("Vertex Offset Intensity", Range(0.0,1.0)) = 0.5
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque"
@@ -28,6 +30,7 @@ Shader "Custom/Neuromancers/Neuron" {
 			uniform fixed4 _RimColor;
 			uniform half _RimAngle;
 			uniform half _RimIntensity;
+			uniform fixed _VertexOffsetIntensity;
 
 			//tex
 			uniform sampler2D _OffsetTex;
@@ -44,15 +47,29 @@ Shader "Custom/Neuromancers/Neuron" {
 				float4 texcoord : TEXCOORD0;
 			};
 
-           
+
+			float pingPong(float val, float maxVal) {
+
+
+				 float L = maxVal * 2;
+				 float T = fmod(val,L);
+				 
+				 if (T < maxVal)
+				     return T;
+				 else
+				     return L - T;
+			}
 			
 			vertexOutput vert(vertexInput v){
 				vertexOutput o;
 				//Set position
 				o.texcoord=v.tex;
 
-				half4 offsetTex = tex2Dlod(_OffsetTex,float4(_OffsetTex_ST.xy*v.tex.xy,0.0,0.0));
-				float4 localPos = v.vertex * (.8 + .2*offsetTex * abs(_SinTime.z));
+//				half4 offsetTex = tex2Dlod(_OffsetTex,float4(_OffsetTex_ST.xy*v.tex.xy,0.0,0.0));
+//				half offsetIntensity = pingPong(v.tex.x ,1.0);
+
+//				float4 localPos = v.vertex * (1.0 +  offsetIntensity*_VertexOffsetIntensity*1.0);
+				float4 localPos = v.vertex;
 				o.pos = UnityObjectToClipPos(localPos);
 
 

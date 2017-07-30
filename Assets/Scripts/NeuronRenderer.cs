@@ -8,6 +8,7 @@ namespace Neuromancers {
 	public class NeuronRenderer : MonoBehaviour {
 		
 		//readonly
+		protected readonly float MAX_EMISSION_INTENSITY = .5f;
 		protected readonly float MAX_RIM_INTENSITY = 2.82f;
 
 		//Serialized
@@ -24,6 +25,7 @@ namespace Neuromancers {
 		protected CanvasGroup canvasGroup;
 		protected Material sphereMaterial;
 		//Primitives
+		protected Vector3 startLocalScale;
 		
 
 		///////////////////////////////////////////////////////////////////////////
@@ -35,6 +37,7 @@ namespace Neuromancers {
 
 			sphereMaterial = sphereRenderer.material;
 			canvasGroup = GetComponent<CanvasGroup>();
+			startLocalScale = this.transform.localScale;
 		}
 
 		protected void Start () {
@@ -54,15 +57,20 @@ namespace Neuromancers {
 
 		public void SetEnergyLevel(float newEnergyLevel) {
 
-			this.energyLevel = Mathf.Clamp(newEnergyLevel,.03f,1f);
+			this.energyLevel = Mathf.Clamp(newEnergyLevel,.2f,1f);
 		}
 
 		protected void UpdateAppearance() {
 
 //			this.energyLevel = 1f;
-			UpdateGlowScale ();
+//			UpdateGlowScale ();
 
+			Vector3 newScale =  startLocalScale*(1f + energyLevel*1f);
+			this.transform.localScale = newScale;
+
+			sphereMaterial.SetFloat("_EmissionIntensity",MAX_EMISSION_INTENSITY*energyLevel);
 			sphereMaterial.SetFloat("_RimIntensity",MAX_RIM_INTENSITY*energyLevel);
+			sphereMaterial.SetFloat("_VertexOffsetIntensity",energyLevel);
 			canvasGroup.alpha = energyLevel;
 		}
 

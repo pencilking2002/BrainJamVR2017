@@ -24,6 +24,7 @@ namespace Neuromancers {
 		Vector3 strScale;
 		private bool neighborNode = false;
 		private float energyLevel = 0f;
+		
 
 
 		//properties
@@ -72,6 +73,10 @@ namespace Neuromancers {
 		// Neuron Functions
 		//
 
+		public void SetParticlesEnabled(bool value) {
+
+			GetComponentInChildren<ParticleSystem>().SetEmissionEnabled(value);
+		}
 
 		public void AddConnection(Connection newConnection) {
 
@@ -114,6 +119,17 @@ namespace Neuromancers {
 		public int GetConnectionCount() {
 
 			return this.allConnections.Count;
+		}
+
+		public bool IsConnectedTo(Neuron destinationNeuron) {
+
+			for (int i = 0; i < allConnections.Count; ++i) {
+
+				if(allConnections[i].DestinationNeuron == destinationNeuron)
+					return true;
+			}
+
+			return false;
 		}
 
 		public IEnumerator ImpluseTrigger (float delta) {

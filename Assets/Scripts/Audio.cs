@@ -26,6 +26,7 @@ namespace Neuromancers
 			DeskShow,
 			Grip_Down,
 			Grip_Up,
+			NeuronSelected,
 		}
 
 
@@ -47,6 +48,7 @@ namespace Neuromancers
 			{SoundEffect.DeskShow,"DeskShow"},
 			{SoundEffect.Grip_Down,"Grip_Down"},
 			{SoundEffect.Grip_Up,"Grip_Up"},
+			{SoundEffect.NeuronSelected,"Neuron_Selected"},
 		};
 
 		protected Dictionary<SoundEffect,AudioClip> soundEffectToAudioClip = new  Dictionary<SoundEffect, AudioClip>();
