@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -117,9 +117,27 @@ namespace Neuromancers {
 				StartCoroutine(n.ImpluseTrigger (c.Strength));
 			}
 
+			RandomSound();
+
 			if(FireAction!=null)
 				FireAction();
+		}
 
+		void RandomSound(){
+
+
+			Audio.SoundEffect[] MyArray = { 
+				Audio.SoundEffect.Neuron_Fire1, 
+				Audio.SoundEffect.Neuron_Fire2, 
+				Audio.SoundEffect.Neuron_Fire3,
+				Audio.SoundEffect.Neuron_Fire4, 
+				Audio.SoundEffect.Neuron_Fire5,
+				};
+			
+			int MyIndex = UnityEngine.Random.Range(0,(MyArray.Length - 1));
+			Debug.Log(MyArray[MyIndex]);
+
+			Audio.Instance.PlaySoundEffect(MyArray[MyIndex]);
 		}
 
 		public int GetConnectionCount() {

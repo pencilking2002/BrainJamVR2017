@@ -26,7 +26,21 @@ namespace Neuromancers
 			DeskShow,
 			Grip_Down,
 			Grip_Up,
-			NeuronSelected,
+			Neuron_Fire1,
+			Neuron_Fire2,
+			Neuron_Fire3,
+			Neuron_Fire4,
+			Neuron_Fire5,
+			Neuron_Fire6,
+			Neuron_Fire7,
+			Neuron_Fire8,
+			Neuron_Fire9,
+			Neuron_Fire10,
+			Neuron_Fire11,
+			Neuron_Fire12,
+			Neuron_Fire13,
+			Neuron_Click
+
 		}
 
 
@@ -48,7 +62,24 @@ namespace Neuromancers
 			{SoundEffect.DeskShow,"DeskShow"},
 			{SoundEffect.Grip_Down,"Grip_Down"},
 			{SoundEffect.Grip_Up,"Grip_Up"},
-			{SoundEffect.NeuronSelected,"Neuron_Selected"},
+
+			{SoundEffect.Neuron_Fire1, "snap1"},
+			{SoundEffect.Neuron_Fire2, "snap2"},
+			{SoundEffect.Neuron_Fire3, "snap3"},
+			{SoundEffect.Neuron_Fire4, "snap4"},
+			{SoundEffect.Neuron_Fire5, "snap5"},
+			{SoundEffect.Neuron_Fire6, "snap6"},
+			{SoundEffect.Neuron_Fire7, "snap7"},
+			{SoundEffect.Neuron_Fire8, "snap8"},
+			{SoundEffect.Neuron_Fire9, "snap9"},
+			{SoundEffect.Neuron_Fire10, "snap10"},
+			{SoundEffect.Neuron_Fire11, "snap11"},
+			{SoundEffect.Neuron_Fire12, "snap12"},
+			{SoundEffect.Neuron_Fire13, "snap13"},
+
+
+			{SoundEffect.Neuron_Click, "trigger"},
+
 		};
 
 		protected Dictionary<SoundEffect,AudioClip> soundEffectToAudioClip = new  Dictionary<SoundEffect, AudioClip>();
