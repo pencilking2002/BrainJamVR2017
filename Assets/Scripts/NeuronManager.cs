@@ -14,8 +14,9 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly
-		protected readonly int TUTORIAL_NEURON_COUNT = 10;
-		protected readonly int NEURON_COUNT = 100;
+		protected readonly int TUTORIAL_FINISH_FIRE_THRESHOLD = 10;
+		protected readonly int TUTORIAL_NEURON_COUNT = 3;
+		protected readonly int NEURON_COUNT = 50;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
@@ -32,6 +33,8 @@ namespace Neuromancers {
 		//protected
 		protected GameObject neuronPrefab;
 		protected GameObject connectionPrefab;
+		//primtiive
+		protected int currentTutorialFireCount;
 
 		///////////////////////////////////////////////////////////////////////////
 		//
@@ -51,7 +54,7 @@ namespace Neuromancers {
 				StartCoroutine(StartTutorial());
 			} else {
 				
-				CreateNeurons ();
+				CreateNeurons (NEURON_COUNT);
 				ConnectNeurons ();
 			}
 		}
@@ -75,6 +78,7 @@ namespace Neuromancers {
 
 				Neuron neuron = CreateNeuron();
 				neuron.SetParticlesEnabled(true);
+				neuron.FireAction += OnNeuronFired;
 				yield return new WaitForSeconds(.1f);
 			}
 
@@ -88,12 +92,21 @@ namespace Neuromancers {
 				yield return new WaitForSeconds(.1f);
 			}
 
+			yield return new WaitUntil (() => currentTutorialFireCount >= TUTORIAL_FINISH_FIRE_THRESHOLD);
+
+			CreateNeurons(NEURON_COUNT - TUTORIAL_NEURON_COUNT);
+			ConnectNeurons();
 		}
 
-		protected void CreateNeurons () {
+		protected void OnNeuronFired() {
+
+			currentTutorialFireCount++;
+		}
+
+		protected void CreateNeurons (int count) {
 			
 			// Place nodes
-			for (int i = 0; i < NEURON_COUNT; i++) {
+			for (int i = 0; i < count; i++) {
 
 				CreateNeuron();
 			}
@@ -121,7 +134,7 @@ namespace Neuromancers {
 			}
 		}
 
-		protected void ConnectNeuron(int i, bool shouldIgnoreDistance = false, bool shouldAnimateConnection = false) {
+		protected void ConnectNeuron(int i, bool shouldIgnoreDistance = false, bool shouldAnimateConnection = true) {
 
 			for (int j = 0; j < neurons.Count; ++j) {
 
@@ -131,8 +144,6 @@ namespace Neuromancers {
 
 				Neuron sourceNeuron = neurons [i];
 				Neuron destinationNeuron = neurons [j];
-
-
 
 				//distance check
 				float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
@@ -150,7 +161,8 @@ namespace Neuromancers {
 					//if the destination neuron is already connected to me and its type is excitory, then force my connection to him to be inhibitory
 					if(destinationNeuron.IsConnectedTo(sourceNeuron) && destinationNeuron.GetConnectionTypeToNeuron(sourceNeuron) == ConnectionType.Excitory)
 						connectionType = ConnectionType.Inhibitory;
-					Connection newConnection = CreateConnection (sourceNeuron, destinationNeuron, shouldAnimateConnection);
+					Connection newConnection = CreateConnection (sourceNeuron, destinationNeuron, shouldAnimateConnection,connectionType);
+
 					sourceNeuron.AddConnection (newConnection);
 				}
 

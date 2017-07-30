@@ -24,7 +24,9 @@ namespace Neuromancers {
 		Vector3 strScale;
 		private bool neighborNode = false;
 		private float energyLevel = 0f;
-		
+
+		//Actions
+		public Action FireAction;
 
 
 		//properties
@@ -103,6 +105,7 @@ namespace Neuromancers {
 			for (int i = 0; i < allConnections.Count; ++i) {
 
 				Connection c = allConnections[i];
+				c.Fire();
 				Neuron n = c.DestinationNeuron;
 	
 				GameObject pathGO = Instantiate (spherePrefab) as GameObject;
@@ -113,6 +116,9 @@ namespace Neuromancers {
 
 				StartCoroutine(n.ImpluseTrigger (c.Strength));
 			}
+
+			if(FireAction!=null)
+				FireAction();
 
 		}
 

@@ -8,7 +8,7 @@ namespace Neuromancers {
 	public class NeuronRenderer : MonoBehaviour {
 		
 		//readonly
-		protected readonly float MAX_EMISSION_INTENSITY = .5f;
+		protected readonly float MAX_EMISSION_INTENSITY = 1f;
 		protected readonly float MAX_RIM_INTENSITY = 2.82f;
 
 		//Serialized
@@ -57,7 +57,7 @@ namespace Neuromancers {
 
 		public void SetEnergyLevel(float newEnergyLevel) {
 
-			this.energyLevel = Mathf.Clamp(newEnergyLevel,.2f,1f);
+			this.energyLevel = Mathf.Clamp(newEnergyLevel,.3f,1f);
 		}
 
 		protected void UpdateAppearance() {

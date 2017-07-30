@@ -62,6 +62,19 @@ namespace Neuromancers {
 		// Connection Functions
 		//
 
+		bool hasAnimatedAlready = false;
+		Vector3 lineRendererEndPosition;
+
+		public void Fire() {
+
+			if(hasAnimatedAlready)
+				return;
+
+			StartCoroutine(AnimateLineEndPosition(lineRendererEndPosition));
+
+			hasAnimatedAlready = true;
+		}
+
 		public void SetData (float strength, Neuron destinationNeuron, bool shouldAnimateConnection, ConnectionType connectionType) {
 
 			if(connectionType == ConnectionType.Unknown) {
@@ -85,10 +98,8 @@ namespace Neuromancers {
 //			Debug.Log(destinationNeuron.transform.position);
 			lineRenderer.SetPosition(0, Utility.Utility.GetRandomVector3(.05f));
 
-			Vector3 lineRendererEndPosition = transform.parent.InverseTransformPoint(destinationNeuron.transform.position);
-			if(shouldAnimateConnection)
-				StartCoroutine(AnimateLineEndPosition(lineRendererEndPosition));
-			else
+			 lineRendererEndPosition = transform.parent.InverseTransformPoint(destinationNeuron.transform.position);
+			if(!shouldAnimateConnection)
 				lineRenderer.SetPosition(1,lineRendererEndPosition);
 		}
 
