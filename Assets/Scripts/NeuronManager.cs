@@ -7,13 +7,14 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly 
-		protected readonly int NEURON_COUNT = 70;
+		protected readonly int NEURON_COUNT = 60;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
+        protected readonly int MAX_NEURON_CONNECTIONS = 2;
 
-		//serialized
-		public List<Neuron> neurons = new List<Neuron> ();
+        //serialized
+        public List<Neuron> neurons = new List<Neuron> ();
 
 		//protected
 		protected GameObject neuronPrefab;
@@ -79,7 +80,7 @@ namespace Neuromancers {
 
 					float distance = Vector3.Distance (sourceNeuron.gameObject.transform.position, destinationNeuron.gameObject.transform.position);
 
-					if (distance < MAX_CONNECTION_RANGE) {
+					if (distance < MAX_CONNECTION_RANGE && sourceNeuron.GetConnectionCount() < MAX_NEURON_CONNECTIONS) {
 
 						Connection newConnection = CreateConnection(sourceNeuron,destinationNeuron);
 						sourceNeuron.AddConnection (newConnection);
@@ -128,11 +129,11 @@ namespace Neuromancers {
 			bool goodDist = false;
 			bool goodVerticalAngle = false;
 
-			float radiusMin = 6;
-			float radiusMax = 10;
+			float radiusMin = 2;
+			float radiusMax = 12;
 		
 
-			Vector3 centerVec = new Vector3 (0, 0, 0);
+			Vector3 centerVec = new Vector3 (0, 0, -10);
 			Vector3 pnt = Vector3.zero;
 
 			int conditions = 0;
@@ -147,7 +148,7 @@ namespace Neuromancers {
 
 				float angle;
 				angle =	CalculateAngle(pnt, centerVec);
-				if(150 > angle && angle > 90)
+				if(130 > angle && angle > 50)
 				{
 					
 
