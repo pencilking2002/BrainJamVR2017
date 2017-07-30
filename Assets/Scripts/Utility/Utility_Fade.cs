@@ -64,6 +64,7 @@ public class Utility_Fade : MonoBehaviour {
 	
 	public float StartFadeIn()
 	{
+//		StartCoroutine(SetRendererEnabled(true));
 		this.startColor = GetColor();
 		this.endColor = FADE_IN_COLOR;
 		StartFade();

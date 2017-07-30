@@ -16,8 +16,8 @@ namespace Neuromancers {
 		//readonly
 		protected readonly int TUTORIAL_FINISH_FIRE_THRESHOLD = 5;
 		protected readonly int TUTORIAL_NEURON_COUNT = 3;
-		protected readonly int NEURON_COUNT = 50;
-		protected readonly float MAX_CONNECTION_RANGE = 3f;
+		protected readonly int NEURON_COUNT = 40;
+		protected readonly float MAX_CONNECTION_RANGE = 2f;
 		protected readonly float MIN_CONNECTION_STRENGTH = -1f;
 		protected readonly float MAX_CONNECTION_STRENGTH = 1f;
 		protected readonly int MAX_NEURON_CONNECTIONS = 2;
@@ -81,7 +81,8 @@ namespace Neuromancers {
 
 				Neuron neuron = CreateNeuron();
 				neuron.SetParticlesEnabled(true);
-				neuron.FireAction += OnNeuronFired;
+//				neuron.FireAction += OnNeuronFired;
+
 				yield return new WaitForSeconds(.1f);
 			}
 
@@ -94,6 +95,8 @@ namespace Neuromancers {
 				ConnectNeuron(i,true,true);
 				yield return new WaitForSeconds(.1f);
 			}
+			
+
 
 			yield return new WaitUntil (() => currentTutorialFireCount >= TUTORIAL_FINISH_FIRE_THRESHOLD);
 
@@ -101,10 +104,28 @@ namespace Neuromancers {
 			ConnectNeurons();
 		}
 
-		protected void OnNeuronFired() {
+		HashSet<Neuron> firedNeuronHashset = new HashSet<Neuron>();
+
+		protected void OnNeuronFired(Neuron neuron) {
 
 			currentTutorialFireCount++;
+
+			if(!firedNeuronHashset.Contains(neuron))
+				firedNeuronHashset.Add(neuron);
+
+			if(firedNeuronHashset.Count>= (NEURON_COUNT-10))
+				StartCoroutine(LoadWinScene());
 		}
+
+		protected IEnumerator LoadWinScene() {
+
+			FindObjectOfType<Utility_Fade>().StartFadeIn();
+
+			yield return new WaitForSeconds(3f);
+
+			UnityEngine.Application.LoadLevel(UnityEngine.Application.loadedLevel+1);
+		}
+
 
 		protected void CreateNeurons (int count) {
 			
@@ -121,9 +142,10 @@ namespace Neuromancers {
 
 			Neuron neuron = newNeuronGO.GetComponent<Neuron> ();
 			neuron.GetComponentInChildren<SphereCollider> ().radius = neuronColliderRadius;
+			neuron.FireAction += OnNeuronFired;
 			neurons.Add (neuron);
 
-			newNeuronGO.transform.position = GetPositionInNightSky (); //GetRandomNeuronPosition ();
+			newNeuronGO.transform.position = GetPositionInNightSky(); //GetRandomNeuronPosition ();
 			newNeuronGO.transform.parent = this.transform;
 
 			return neuron;
@@ -194,11 +216,11 @@ namespace Neuromancers {
 
 
 		Vector3 GetRandomNeuronPosition () {
-			Vector3 centerVec = new Vector3 (0, 0, 0);
+			Vector3 centerVec = new Vector3 (0, -5, 0);
 		
-			float rangeX = 4;
-			float rangeY = 4;
-			float rangeZ = 4;
+			float rangeX = 2;
+			float rangeY = 1;
+			float rangeZ = 2;
 
 			Vector3 randomPos = new Vector3 (
 				                    Random.Range (rangeX * -1, rangeX),
@@ -233,7 +255,7 @@ namespace Neuromancers {
 
 				float angle;
 				angle =	CalculateAngle (pnt, centerVec);
-				if (130 > angle && angle > 50) {
+				if (115 > angle && angle > 35) {
 					
 
 					conditions++;
