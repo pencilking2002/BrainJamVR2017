@@ -38,8 +38,8 @@ namespace Neuromancers
 			Neuron_Fire10,
 			Neuron_Fire11,
 			Neuron_Fire12,
-			Neuron_Fire13
-
+			Neuron_Fire13,
+			Neuron_Click
 
 		}
 
@@ -76,6 +76,9 @@ namespace Neuromancers
 			{SoundEffect.Neuron_Fire11, "snap11"},
 			{SoundEffect.Neuron_Fire12, "snap12"},
 			{SoundEffect.Neuron_Fire13, "snap13"},
+
+
+			{SoundEffect.Neuron_Click, "trigger"},
 
 		};
 
