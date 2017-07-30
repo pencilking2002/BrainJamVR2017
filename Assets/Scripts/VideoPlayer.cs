@@ -8,13 +8,6 @@ namespace Neuromancers
     [RequireComponent(typeof(UnityEngine.Video.VideoPlayer))]
     public class VideoPlayer : MonoBehaviour
     {
-
-
-       
-        [Tooltip("Put Hotsprings Video here ")]
-        public UnityEngine.Video.VideoClip hotSprings;
-        [Tooltip("Put River Video here ")]
-        public UnityEngine.Video.VideoClip river;
         
 
         private UnityEngine.Video.VideoPlayer vrPlayer;
@@ -29,18 +22,15 @@ namespace Neuromancers
         {
 
             vrPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-            if (GameManager.instance.neuronHitCounter >= 10)
-                vrPlayer.clip = river;
-            else
-                vrPlayer.clip = river;
-          
             PlayVideoVR();
         }
 
 
         public void PlayVideoVR()
         {
+            Destroy(this.gameObject, 10f);
             vrPlayer.Play();
+            
         }
    
     }

@@ -29,7 +29,7 @@ namespace Neuromancers
 
         protected void Awake()
         {
-            neuronManagerPrefab = Resources.Load("Prefabs/NeuronManager") as GameObject;
+          //  neuronManagerPrefab = Resources.Load("Prefabs/NeuronManager") as GameObject;
 
             if (instance == null)
                 instance = this;
