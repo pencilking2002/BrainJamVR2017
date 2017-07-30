@@ -9,23 +9,32 @@ namespace Neuromancers
     public class VideoPlayer : MonoBehaviour
     {
 
-        [Tooltip("Put Youtube 360 live stream link here")]
-        public string youtube360;
-        [Tooltip("Turn into test offline video")]
-        public bool testMode = false;
+
+       
+        [Tooltip("Put Hotsprings Video here ")]
+        public UnityEngine.Video.VideoClip hotSprings;
+        [Tooltip("Put River Video here ")]
+        public UnityEngine.Video.VideoClip river;
+        
 
         private UnityEngine.Video.VideoPlayer vrPlayer;
        
        // Use this for initialization
        protected void Awake()
        {
+
         }
 
         protected void Start()
         {
+
             vrPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-            if(!testMode)
-            vrPlayer.url = youtube360;
+            if (GameManager.instance.neuronHitCounter >= 10)
+                vrPlayer.clip = river;
+            else
+                vrPlayer.clip = river;
+          
+            PlayVideoVR();
         }
 
 

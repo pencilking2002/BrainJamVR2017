@@ -96,7 +96,7 @@ namespace Neuromancers {
 		public GameObject spherePrefab;
 
 		public void Fire () {
-
+            GameManager.instance.neuronHitCounter++;
 			lastFireTime = Time.time;
 //			UIPrimitives.MaterialAnimator matAnim = render.GetComponent<UIPrimitives.MaterialAnimator> ();
 //			matAnim.ClearAllAnimations ();
