@@ -14,7 +14,7 @@ namespace Neuromancers {
 	public class NeuronManager : MonoBehaviour {
 
 		//readonly
-		protected readonly int TUTORIAL_FINISH_FIRE_THRESHOLD = 10;
+		protected readonly int TUTORIAL_FINISH_FIRE_THRESHOLD = 5;
 		protected readonly int TUTORIAL_NEURON_COUNT = 3;
 		protected readonly int NEURON_COUNT = 50;
 		protected readonly float MAX_CONNECTION_RANGE = 3f;
