@@ -149,7 +149,7 @@ namespace Neuromancers.UI
 
 		public void OnInteractiveGaze (List<InteractiveGazeEventData> dataList) {
 
-			Debug.Log("hello im a crosshair");
+//			Debug.Log("hello im a crosshair");
 			bool hitInteractable = false;
 			bool hitCollider = false;
 			float minDistance = float.MaxValue;
