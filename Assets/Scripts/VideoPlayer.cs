@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Neuromancers
 {
-    [RequireComponent(typeof(UnityEngine.Video.VideoPlayer))]
+   
     public class VideoPlayer : MonoBehaviour
     {
         
 
-        private UnityEngine.Video.VideoPlayer vrPlayer;
+      
        
        // Use this for initialization
        protected void Awake()
@@ -21,7 +21,7 @@ namespace Neuromancers
         protected void Start()
         {
 
-            vrPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+           
             PlayVideoVR();
         }
 
@@ -29,8 +29,9 @@ namespace Neuromancers
         public void PlayVideoVR()
         {
             Destroy(this.gameObject, 10f);
-            vrPlayer.Play();
-            
+            this.gameObject.GetComponent<MediaPlayerCtrl>().Play();
+
+
         }
    
     }
